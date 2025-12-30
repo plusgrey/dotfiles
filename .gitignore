@@ -1,0 +1,46 @@
+####################################
+# DEFAULT: ignore EVERYTHING
+####################################
+*
+
+####################################
+# ===== WHITELIST =====
+####################################
+
+# Shell
+!.bashrc
+!.zshrc
+!.zimrc
+
+# Git
+!.gitconfig
+!.gitignore
+
+# config directory
+!.config/
+
+# kitty terminal
+!.config/kitty/
+!.config/kitty/**
+
+# Vim
+!.vimrc
+!.vim/
+!.gvimrc
+!.gvim/
+
+# btop
+!.config/btop/
+!.config/btop/**
+
+# Neovim
+!.config/nvim/
+!.config/nvim/**
+
+# Tmux
+!.tmux.conf
+!.tmux/
+
+####################################
+# END
+####################################
