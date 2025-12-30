@@ -23,6 +23,10 @@
 !.config/kitty/
 !.config/kitty/**
 
+# wezterm terminal
+!.config/wezterm/
+!.config/wezterm/**
+
 # Vim
 !.vimrc
 !.vim/
