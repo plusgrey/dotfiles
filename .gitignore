@@ -50,6 +50,10 @@
 !.tmux/
 !.config/tmux/
 !.config/tmux/**
+
+# Yazi
+!.config/yazi/
+!.config/yazi/**
 ####################################
 # END
 ####################################
