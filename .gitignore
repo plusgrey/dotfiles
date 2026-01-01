@@ -27,6 +27,10 @@
 !.config/wezterm/
 !.config/wezterm/**
 
+# font settings
+!.config/fontconfig
+!.config/fontconfig/**
+
 # Vim
 !.vimrc
 !.vim/
