@@ -52,11 +52,11 @@ environment {
     WLR_DRM_DEVICES "/dev/dri/card1:/dev/dri/card0"
     GBM_BACKEND "nvidia-drm"
     __GLX_VENDOR_LIBRARY_NAME "nvidia"
-    
-    // IBus 中文输入法配置
-    //QT_IM_MODULE "ibus"
+    QT_QPA_PLATFORMTHEME "gtk3"   
+    // 中文输入法配置
+    QT_IM_MODULE "fcitx"
     //GTK_IM_MODULE "ibus"
-    //XMODIFIERS "@im=ibus"
+    XMODIFIERS "@im=fcitx"
     
     // 强制部分应用使用 Wayland
     MOZ_ENABLE_WAYLAND "1"
@@ -130,7 +130,7 @@ binds {
     Mod+Shift+WheelScrollUp   { move-column-left; }
 
     // 系统功能
-    Print { spawn "grim" "-g" "$(slurp)" "-" "|" "wl-copy"; }
+    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"; }
     Mod+Shift+E { quit; }
     
     // 音量与亮度

@@ -255,22 +255,9 @@
                 },
                 {
                     "id": "WallpaperSelector"
-                },
-                {
-                    "enableOnStateLogic": false,
-                    "generalTooltipText": "IBus",
-                    "icon": "keyboard",
-                    "id": "CustomButton",
-                    "onClicked": "",
-                    "onMiddleClicked": "",
-                    "onRightClicked": "",
-                    "stateChecksJson": "[]"
                 }
             ],
             "right": [
-                {
-                    "id": "WiFi"
-                },
                 {
                     "id": "Notifications"
                 },
