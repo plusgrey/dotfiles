@@ -52,7 +52,7 @@ environment {
     WLR_DRM_DEVICES "/dev/dri/card1:/dev/dri/card0"
     GBM_BACKEND "nvidia-drm"
     __GLX_VENDOR_LIBRARY_NAME "nvidia"
-    QT_QPA_PLATFORMTHEME "gtk3"   
+    QT_QPA_PLATFORMTHEME "qt6ct"   
     // 中文输入法配置
     QT_IM_MODULE "fcitx"
     //GTK_IM_MODULE "ibus"
