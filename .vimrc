@@ -21,3 +21,11 @@ endif
 
 " 可选：如果你希望 y 和 p 直接同步系统剪切板（慎用，可能会影响速度）
 " set clipboard=unnamedplus
+
+set number
+syntax on
+set expandtab      " 将 tab 转换为空格
+set tabstop=4      " tab 显示为 4 个空格宽度
+set shiftwidth=4   " 自动缩进使用 4 个空格
+set softtabstop=4  " 编辑时 tab 键插入 4 个空格
+	

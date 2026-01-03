@@ -26,6 +26,11 @@ sudo pacman -S --needed --noconfirm \
   fcitx5 \
   fcitx5-rime \
   xwayland-satellite \
+  nwg-look \
+  qt6ct \
+  papirus-icon-theme \
+  
+  
 
 #install rime-ice
 cd ~/Downloads

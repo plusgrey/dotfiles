@@ -46,13 +46,13 @@
                     "colorizeIcons": false,
                     "enableScrollWheel": true,
                     "followFocusedScreen": false,
-                    "groupedBorderOpacity": 1,
-                    "hideUnoccupied": false,
+                    "groupedBorderOpacity": 0.2,
+                    "hideUnoccupied": true,
                     "id": "Workspace",
                     "labelMode": "index",
-                    "showApplications": false,
+                    "showApplications": true,
                     "showLabelsOnlyWhenOccupied": true,
-                    "unfocusedIconsOpacity": 1
+                    "unfocusedIconsOpacity": 0.51
                 }
             ],
             "left": [
@@ -85,25 +85,16 @@
                     "wheelUpdateText": false
                 },
                 {
-                    "customFont": "",
-                    "formatHorizontal": "yyyy-MM-dd ddd HH:mm:ss",
-                    "formatVertical": "HH mm - dd MM",
-                    "id": "Clock",
-                    "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": false,
-                    "usePrimaryColor": false
-                },
-                {
-                    "compactMode": true,
+                    "compactMode": false,
                     "diskPath": "/",
                     "id": "SystemMonitor",
                     "showCpuTemp": true,
                     "showCpuUsage": true,
                     "showDiskUsage": false,
                     "showGpuTemp": false,
-                    "showMemoryAsPercent": false,
+                    "showMemoryAsPercent": true,
                     "showMemoryUsage": true,
-                    "showNetworkStats": false,
+                    "showNetworkStats": true,
                     "useMonospaceFont": true,
                     "usePrimaryColor": false
                 },
@@ -132,7 +123,13 @@
             ],
             "right": [
                 {
-                    "id": "ScreenRecorder"
+                    "customFont": "",
+                    "formatHorizontal": "yyyy-MM-dd ddd HH:mm:ss",
+                    "formatVertical": "HH:mm",
+                    "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "useCustomFont": false,
+                    "usePrimaryColor": true
                 },
                 {
                     "blacklist": [
