@@ -17,3 +17,9 @@ vim.keymap.set({ "n", "x" }, "Q", "<CMD>:qa<CR>")
 vim.keymap.set({ "n", "x" }, "qq", "<CMD>:q<CR>")
 
 vim.keymap.set("n", "<A-z>", "<CMD>set wrap!<CR>", { desc = "Toggle line wrap" })
+
+--delete without yanking
+vim.keymap.set({ "n", "x" }, "x", '"_x')
+vim.keymap.set({ "n", "x" }, "d", '"_d')
+vim.keymap.set("n", "c", '"_c')
+vim.keymap.set({ "n", "dd" }, "dd", '"_dd')
