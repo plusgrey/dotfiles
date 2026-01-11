@@ -15,7 +15,7 @@ end
 config.font = wezterm.font_with_fallback({
 	{
 		family = "MesloLGS Nerd Font Mono",
-		weight = "Bold",
+		weight = "Regular",
 	},
 	{
 		family = "Noto Sans CJK SC",
@@ -23,7 +23,7 @@ config.font = wezterm.font_with_fallback({
 	},
 })
 config.font_size = 12.5
-config.line_height = 1.1 -- 对应 Kitty 的 110%
+config.line_height = 1.0 -- 对应 Kitty 的 110%
 
 ----------------------------------------------------------------
 -- 2. 窗口外观 (Window)

@@ -221,3 +221,4 @@ alias tl='tmux list-sessions'
 # 其他
 alias ff='fastfetch'
 
+export PATH="$HOME/.cargo/bin:$PATH"

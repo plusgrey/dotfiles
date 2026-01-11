@@ -43,6 +43,9 @@ vim.opt.shell = "zsh"
 
 vim.o.winborder = "rounded"
 
+-- 禁用终端粗体，让 Neovim 字体更细
+vim.g.terminal_bold = 0
+
 require("config.lazy") -- Import `./lua/config/lazy.lua`
 
 require("keymapping")
