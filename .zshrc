@@ -154,23 +154,36 @@ function zle-line-finish {
 }
 zle -N zle-line-finish
 
-# Wayland 剪贴板集成 (使用 wl-copy 和 wl-paste)
+# 剪贴板集成
 function wayland-clip-wrap-widgets() {
     local copy_or_paste=$1
     shift
+
+    # 根据系统选择剪贴板命令
+    local copy_cmd="wl-copy"
+    local paste_cmd="wl-paste"
+    
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        copy_cmd="pbcopy"
+        paste_cmd="pbpaste"
+    fi
 
     for widget in $@; do
         if [[ $copy_or_paste == "copy" ]]; then
             eval "
             function _wayland-clip-wrapped-$widget() {
                 zle .$widget
-                echo -n \$CUTBUFFER | wl-copy
+                if command -v $copy_cmd >/dev/null 2>&1; then
+                    echo -n \$CUTBUFFER | $copy_cmd
+                fi
             }
             "
         else
             eval "
             function _wayland-clip-wrapped-$widget() {
-                CUTBUFFER=\$(wl-paste)
+                if command -v $paste_cmd >/dev/null 2>&1; then
+                    CUTBUFFER=\$($paste_cmd)
+                fi
                 zle .$widget
             }
             "
