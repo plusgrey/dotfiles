@@ -1,11 +1,11 @@
 # Font configuration
 font-family = MesloLGS Nerd Font Mono
-font-size = 15.5
+font-size = 13.5
 
 # Window configuration
-window-decoration = false
-window-padding-x = 15
-window-padding-y = 15
+window-decoration = true
+window-padding-x = 5
+window-padding-y = 5
 window-width = 160
 window-height = 50
 
@@ -43,7 +43,7 @@ cursor-style-blink = true
 command = /bin/zsh
 
 # Scrollback
-scrollback-limit = 8000
+scrollback-limit = 800000
 
 
 # Keybindings

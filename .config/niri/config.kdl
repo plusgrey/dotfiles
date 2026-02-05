@@ -43,7 +43,7 @@ layout {
 }
 
 // --- 启动项 ---
-spawn-at-startup "wezterm"
+spawn-at-startup "ghostty"
 spawn-at-startup "sh" "-lc" "noctalia-shell"
 spawn-at-startup "fcitx5" "-d"
 
@@ -67,7 +67,7 @@ environment {
 // --- 快捷键绑定 ---
 binds {
     // ========== 基础应用启动 ==========
-    Mod+T { spawn "wezterm"; }
+    Mod+T { spawn "ghostty"; }
     Mod+D { spawn "sh" "-lc" "noctalia-shell ipc call launcher toggle"
     }
     // Mod+B repeat=false {spawn "zen";}  // 启动 Zen

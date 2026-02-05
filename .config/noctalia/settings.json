@@ -15,7 +15,7 @@
         "showCategories": true,
         "showIconBackground": false,
         "sortByMostUsed": true,
-        "terminalCommand": "wezterm -e",
+        "terminalCommand": "ghostty -e",
         "useApp2Unit": false,
         "viewMode": "list"
     },
@@ -218,7 +218,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "matugenSchemeType": "scheme-fruit-salad",

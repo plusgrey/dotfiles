@@ -99,7 +99,7 @@ return {
     config = function()
       local dap = require("dap")
       dap.defaults.fallback.external_terminal = {
-        command = "wezterm",
+        command = "ghostty",
       }
 
       -- Fix: Disable winfixbuf before DAP jumps to source location
