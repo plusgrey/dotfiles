@@ -43,6 +43,15 @@ vim.keymap.set({ "n", "x" }, "P", '"+P', { desc = "Paste before from system clip
 vim.keymap.set({ "n", "x" }, "<leader>p", '""p', { desc = "Paste from internal register" })
 vim.keymap.set({ "n", "x" }, "<leader>P", '""P', { desc = "Paste before from internal register" })
 
+-- 对应原版 'x' 的功能，但存入内部寄存器
+vim.keymap.set({ "n", "x" }, "<leader>x", '""x', { desc = "Cut char/selection (internal)" })
+
+-- 对应原版 'd' 的功能，但存入内部寄存器
+vim.keymap.set({ "n", "x" }, "<leader>d", '""d', { desc = "Cut motion (internal)" })
+
+-- 对应原版 'dd' 的功能，但存入内部寄存器
+vim.keymap.set("n", "<leader>dd", '""dd', { desc = "Cut line (internal)" })
+
 -- <C-o> 回跳并居中
 vim.keymap.set("n", "<C-o>", "<C-o>zz", { desc = "Go back and center" })
 vim.keymap.set("n", "<C-i>", "<C-i>zz", { desc = "Go forward and center" })
