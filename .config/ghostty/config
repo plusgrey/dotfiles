@@ -79,3 +79,8 @@ keybind = ctrl+6=text:\x1b[27;5;54~
 keybind = ctrl+7=text:\x1b[27;5;55~
 keybind = ctrl+8=text:\x1b[27;5;56~
 keybind = ctrl+9=text:\x1b[27;5;57~
+# 自定义字体大小调整快捷键（如果默认的冲突）
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+

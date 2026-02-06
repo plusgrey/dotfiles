@@ -162,7 +162,7 @@ function wayland-clip-wrap-widgets() {
     # 根据系统选择剪贴板命令
     local copy_cmd="wl-copy"
     local paste_cmd="wl-paste"
-    
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
         copy_cmd="pbcopy"
         paste_cmd="pbpaste"
@@ -204,6 +204,10 @@ local paste_widgets=(
 wayland-clip-wrap-widgets copy $copy_widgets
 wayland-clip-wrap-widgets paste $paste_widgets
 
+# direnv
+export DIRENV_LOG_FORMAT=""
+eval "$(direnv hook zsh)"
+
 # -------
 # Aliases
 # -------
@@ -224,6 +228,7 @@ alias lg='lazygit'
 alias py='python'
 alias px='pixi'
 alias nv='nvim'
+alias pr='pixi run'
 
 # Tmux
 alias t='tmux'
@@ -238,6 +243,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Nixos
 alias nixrb='sudo nixos-rebuild boot --flake'
 alias nixrs='sudo nixos-rebuild switch --flake'
-
+alias nixgc='sudo nix-collect-garbage -d'
 #niri
 alias nirisc='niri msg action load-config-file'
