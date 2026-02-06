@@ -246,3 +246,4 @@ alias nixrs='sudo nixos-rebuild switch --flake'
 alias nixgc='sudo nix-collect-garbage -d'
 #niri
 alias nirisc='niri msg action load-config-file'
+

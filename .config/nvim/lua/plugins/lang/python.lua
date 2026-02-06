@@ -1,6 +1,6 @@
 vim.lsp.enable("pyright")
 
-local M = {
+return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
@@ -44,9 +44,9 @@ local M = {
     dependencies = { "mfussenegger/nvim-dap" },
     cmd = "VenvSelect",
     opts = {
-        options = {
-          notify_user_on_venv_activation = true,
-        },
+      options = {
+        notify_user_on_venv_activation = true,
+      },
     },
     --  Call config for python files and load the cached venv automatically
     ft = "python",
@@ -137,5 +137,3 @@ local M = {
     end,
   },
 }
-
-return M
