@@ -214,15 +214,35 @@ eval "$(direnv hook zsh)"
 
 # 系统命令
 alias c='clear'
-alias ll='ls -la'
-alias lh='ls -lh'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ~='cd ~'
 
+#replace ls with eza
+alias ls='eza'
+alias la='eza -la'
+alias ll='eza -la'
+alias lt='eza --tree'
+alias ltr='eza --tree --reverse'
+alias lr='eza --reverse'
+alias lm='eza --long --sort=size'
+alias lh='eza -lh'
+
+
 # Git
 alias gs='git status'
 alias lg='lazygit'
+alias ga='git add'
+alias gp='git push'
+alias gl='git pull'
+alias gb='git branch'
+alias gco='git checkout'
+alias gd='git diff'
+alias gcm='git commit -m'
+alias gst='git stash'
+alias gpl='git pull'
+alias gcl='git clone'
+
 
 # 开发工具
 alias py='python'
