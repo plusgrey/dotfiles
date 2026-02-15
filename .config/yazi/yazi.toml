@@ -65,7 +65,6 @@ download = [
 rules = [
   # Folder
   { url = "*/", use = [
-    "edit",
     "open",
     "reveal",
   ] },

@@ -83,17 +83,20 @@ return {
     opts = function()
       --stylua: ignore
       local dap_breakpoint = {
-        breakpoint = { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }, -- Nerd font: nf-cod-activate_breakpoints
-        condition  = { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" },
-        rejected   = { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" },
-        logpoint   = { text = "", texthl = "DapLogPoint",   linehl = "DapLogPoint",   numhl = "DapLogPoint"   },
-        stopped    = { text = "", texthl = "DapStopped",    linehl = "DapStopped",    numhl = "DapStopped"    },
+        breakpoint = { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" }, -- Nerd font: nf-cod-activate_breakpoints
+        condition  = { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" },
+        rejected   = { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" },
+        logpoint   = { text = "", texthl = "DapLogPoint",   linehl = "",  numhl = ""   },
+        stopped    = { text = "", texthl = "DapStopped",    linehl = "",    numhl = ""    },
       }
       vim.fn.sign_define("DapBreakpoint", dap_breakpoint.breakpoint)
       vim.fn.sign_define("DapBreakpointCondition", dap_breakpoint.condition)
       vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
       vim.fn.sign_define("DapLogPoint", dap_breakpoint.logpoint)
       vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+      vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#e51400" }) -- 鲜红色
+      vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61afef" }) -- 蓝色
+      vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379" }) -- 绿色
     end,
 
     config = function()

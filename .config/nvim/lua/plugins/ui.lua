@@ -257,10 +257,11 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPost",
     opts = {
-      signcolumn = false,
-      numhl = true,
-      -- word_diff = true,
-      current_line_blame = true,
+      signcolumn = true,
+      numhl = false,
+      linehl = false,
+      word_diff = false,
+      current_line_blame = false,
       attach_to_untracked = true,
       preview_config = {
         border = "rounded",
