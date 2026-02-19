@@ -63,6 +63,8 @@
 #Emacs
 !.config/emacs
 !.config/emacs/**
+.config/emacs/elpa
+.config/emacs/elpa/**
 
 # Installation scripts
 !install.sh
