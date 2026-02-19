@@ -60,6 +60,10 @@
 !.config/yazi/
 !.config/yazi/**
 
+#Emacs
+!.config/emacs
+!.config/emacs/**
+
 # Installation scripts
 !install.sh
 
