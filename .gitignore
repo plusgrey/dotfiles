@@ -65,6 +65,12 @@
 !.config/emacs/**
 .config/emacs/elpa
 .config/emacs/elpa/**
+.config/emacs/.cache/
+.config/emacs/.cache/**
+.config/emacs/auto-save-list/
+.config/emacs/auto-save-list/**
+.config/emacs/history
+.config/emacs/history/**
 
 # Installation scripts
 !install.sh

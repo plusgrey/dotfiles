@@ -31,6 +31,7 @@
 
 ;; 4. Load Custom Modules
 (require 'basic)
+(require 'dev)
 (require 'theme)
 
 ;; 5. Handle Custom File (UI generated settings)
@@ -38,5 +39,13 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file 'noerror))
+
+(add-hook
+ 'emacs-startup-hook
+ (lambda ()
+   (setq gc-cons-threshold (* 50 1024 1024)
+         gc-cons-percentage 0.1)
+   (when (boundp 'my--file-name-handler-alist)
+     (setq file-name-handler-alist my--file-name-handler-alist))))
 
 ;;; init.el ends here

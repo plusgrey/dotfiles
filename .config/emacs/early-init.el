@@ -33,6 +33,7 @@
 ;; 3. 性能与编码增强
 ;; ----------------------------------------------------------------------------
 ;; 优化文件读写性能
+(defvar my--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 
 ;; 禁止压缩字体缓存（大幅提升含中文字符页面的滚动顺畅度）

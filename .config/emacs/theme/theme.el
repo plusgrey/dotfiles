@@ -3,10 +3,9 @@
 (use-package doom-themes
   :ensure t
   :config
-  ;; 设置浅色护眼主题
-  ;; 选项 A: doom-one-light (现代、清晰，墙裂推荐)
-  ;; 选项 B: doom-solarized-light (经典的低对比度“黄纸”护眼色)
-  (load-theme 'doom-one-light t)
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-zenburn t)
 
   ;; 在使用选定主题时，让光标处的括号高亮更明显
   (doom-themes-visual-bell-config)
