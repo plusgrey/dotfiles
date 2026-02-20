@@ -44,4 +44,5 @@
 ;; 如果你希望所有 Frame（包括新开的窗口）都生效，建议也把字体加入默认列表
 (add-to-list 'default-frame-alist '(font . "MesloLGS Nerd Font Mono-13"))
 
+
 (provide 'basic)
