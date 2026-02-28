@@ -61,12 +61,8 @@
 !.config/yazi/**
 
 #Emacs
-!.config/emacs/core/
-!.config/emacs/core/**
-!.config/emacs/init.el
-!.config/emacs/early-init.el
-!.config/emacs/theme/
-!.config/emacs/theme/**
+!.emacs.d/
+!.emacs.d/**
 
 # Installation scripts
 !install.sh
