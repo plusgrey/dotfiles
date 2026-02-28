@@ -4,10 +4,12 @@ sudo pacman -S --needed --noconfirm \
   yazi \
   wezterm \
   zsh \
+  emacs \
   fzf \
   neovim \
   tmux \
   lazygit \
+  ghostty \
   ibus-rime librime rime-essay \
   noto-fonts-cjk \
   ttf-meslo-nerd \
@@ -37,7 +39,7 @@ sudo pacman -S --needed --noconfirm \
   cmake \
   ninja \
   clang \
-
+  nodejs \
   
 
 #install rime-ice
