@@ -19,7 +19,6 @@ sudo pacman -S --needed --noconfirm \
   wl-clipboard \
   grim slurp \
   swaybg \
-  poolkit-gnome \
   wayland-protocols \
   fcitx5-qt \
   fcitx5-gtk \

@@ -44,7 +44,7 @@ layout {
 
 // --- 启动项 ---
 spawn-at-startup "ghostty"
-spawn-at-startup "sh" "-lc" "noctalia-shell"
+spawn-at-startup "sh" "-lc" "qs -c noctalia-shell"
 spawn-at-startup "fcitx5" "-d"
 
 // --- 环境变量 (解决输入法和 Chrome 问题) ---
@@ -68,10 +68,11 @@ environment {
 binds {
     // ========== 基础应用启动 ==========
     Mod+T { spawn "ghostty"; }
-    Mod+D { spawn "sh" "-lc" "noctalia-shell ipc call launcher toggle"
+    Mod+D { spawn "sh" "-lc" "qs -c noctalia-shell ipc call launcher toggle"
     }
     // Mod+B repeat=false {spawn "zen";}  // 启动 Zen
-    Mod+B repeat=false {spawn "systemd-run" "--user" "--scope" "zen";}
+    //Mod+B repeat=false {spawn "systemd-run" "--user" "--scope" "zen";}
+    Mod+B { spawn "google-chrome-stable" "--ozone-platform-hint=auto" "--enable-features=WaylandWindowDecorations"; }
     Mod+Q { close-window; }
     Mod+Shift+Slash { show-hotkey-overlay; } // 手动查看快捷键提示 (Mod+?)
 
