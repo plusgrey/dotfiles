@@ -1,9 +1,9 @@
 ;; init-prog.el --- Initialize programming configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -43,14 +43,14 @@
   :ensure nil
   :hook (prog-mode . prettify-symbols-mode)
   :init
-  (setq-default prettify-symbols-alist centaur-prettify-symbols-alist)
+  (setq-default prettify-symbols-alist my-prettify-symbols-alist)
   (setq prettify-symbols-unprettify-at-point 'right-edge))
 
 ;; Tree-sitter support
-(when (centaur-treesit-available-p)
+(when (my-treesit-available-p)
   ;; Automatic Tree-sitter grammar management
   (use-package treesit-auto
-    :functions centaur-treesit-available-p
+    :functions my-treesit-available-p
     :hook (after-init . global-treesit-auto-mode)
     :init (setq treesit-auto-install 'prompt)))
 
@@ -173,7 +173,7 @@ Install the doc if it's not installed."
 (use-package powershell
   :custom (explicit-pwsh.exe-args explicit-powershell.exe-args))
 
-(if (centaur-treesit-available-p)
+(if (my-treesit-available-p)
     (progn
       (use-package julia-ts-mode)
       (use-package mermaid-ts-mode

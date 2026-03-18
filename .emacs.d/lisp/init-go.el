@@ -1,9 +1,9 @@
 ;; init-go.el --- Initialize Golang configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2018-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -63,7 +63,7 @@
            (message "Failed to install %s: %d" pkg status)))))))
 
 ;; Configure Golang automatically
-(defvar go-keymap (if (centaur-treesit-available-p)
+(defvar go-keymap (if (my-treesit-available-p)
                       'go-ts-mode-map
                     'go-mode-map)
   "The keymap for Golang.")
@@ -96,9 +96,9 @@
            ("C-c t x" . go-run))))
 
 ;; Golang
-(if (centaur-treesit-available-p)
+(if (my-treesit-available-p)
     (use-package go-ts-mode
-      :functions (centaur-treesit-available-p exec-path-from-shell-copy-envs)
+      :functions (my-treesit-available-p exec-path-from-shell-copy-envs)
       :mode (("\\.go\\'" . go-ts-mode)
              ("/go\\.mod\\'" . go-mod-ts-mode))
       :custom (go-ts-mode-indent-offset 4)

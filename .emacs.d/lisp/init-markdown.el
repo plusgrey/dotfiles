@@ -1,9 +1,9 @@
 ;; init-markdown.el --- Initialize markdown configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2009-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -93,7 +93,7 @@ mermaid.initialize({
     ;; Preview with webkit
     (defun my/markdown-export-and-preview ()
       "Preview with `xwidget' if applicable, otherwise with the default browser."
-      (centaur-browse-url-of-file (markdown-export)))
+      (my-browse-url-of-file (markdown-export)))
     (advice-add #'markdown-export-and-preview :override #'my/markdown-export-and-preview)))
 
 ;; Table of contents
@@ -122,7 +122,7 @@ mermaid.initialize({
         (apply fn args))))))
 
 ;; Preview markdown files
-;; @see https://github.com/seagle0128/grip-mode?tab=readme-ov-file#prerequisite
+;; @see https://github.com/yourusername/grip-mode?tab=readme-ov-file#prerequisite
 (use-package grip-mode
   :defines markdown-mode-command-map org-mode-map grip-update-after-change grip-use-mdopen
   :functions auth-source-user-and-password

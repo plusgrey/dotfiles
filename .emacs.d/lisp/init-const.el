@@ -1,9 +1,9 @@
 ;; init-const.el --- Define constants.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -30,21 +30,21 @@
 
 ;;; Code:
 
-(defconst centaur-homepage
-  "https://github.com/seagle0128/.emacs.d"
-  "The Github page of Centaur Emacs.")
+(defconst my-homepage
+  "https://github.com/yourusername/.emacs.d"
+  "The Github page of My Emacs.")
 
-(defconst centaur-custom-example-file
+(defconst my-custom-example-file
   (expand-file-name "custom-example.el" user-emacs-directory)
-  "Custom example file of Centaur Emacs.")
+  "Custom example file of My Emacs.")
 
-(defconst centaur-custom-post-file
+(defconst my-custom-post-file
   (expand-file-name "custom-post.el" user-emacs-directory)
   "Custom file after startup.
 
 Put private configurations to override defaults here.")
 
-(defconst centaur-custom-post-org-file
+(defconst my-custom-post-org-file
   (expand-file-name "custom-post.org" user-emacs-directory)
   "Custom org file after startup.
 

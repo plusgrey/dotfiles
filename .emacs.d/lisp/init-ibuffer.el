@@ -1,9 +1,9 @@
 ;; init-buffer.el --- Initialize ibuffer configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -41,7 +41,7 @@
 ;; Display icons for buffers
 (use-package nerd-icons-ibuffer
   :hook ibuffer-mode
-  :init (setq nerd-icons-ibuffer-icon centaur-icon))
+  :init (setq nerd-icons-ibuffer-icon my-icon))
 
 ;; Group ibuffer's list by project
 (use-package ibuffer-project

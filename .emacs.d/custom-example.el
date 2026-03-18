@@ -4,26 +4,26 @@
 ;;;       Put your own configurations in custom-post.el to override default configurations.
 ;;; Code:
 
-;; (setq centaur-logo nil)                        ; Logo file or nil (official logo)
-;; (setq centaur-full-name "user name")           ; User full name
-;; (setq centaur-mail-address "user@email.com")   ; Email address
-;; (setq centaur-proxy "127.0.0.1:7897")          ; HTTP/HTTPS proxy
-;; (setq centaur-socks-proxy "127.0.0.1:7897")    ; SOCKS proxy
+;; (setq my-logo nil)                        ; Logo file or nil (official logo)
+;; (setq my-full-name "user name")           ; User full name
+;; (setq my-mail-address "user@email.com")   ; Email address
+;; (setq my-proxy "127.0.0.1:7897")          ; HTTP/HTTPS proxy
+;; (setq my-socks-proxy "127.0.0.1:7897")    ; SOCKS proxy
 
-;; (setq centaur-use-exec-path-from-shell nil)    ; Use `exec-path-from-shell' or not. If using emacs-plus with path ejection, set to nil
-;; (setq centaur-icon nil)                        ; Display icons or not: t or nil
-;; (setq centaur-package-archives 'melpa)         ; Package repo: melpa, bfsu, iscas, netease, sjtu, tencent, tuna or ustc
-;; (setq centaur-theme 'auto)                     ; Color theme: auto, random, system, default, pro, dark, light, warm, cold, day or night
-;; (setq centaur-completion-style 'minibuffer)    ; Completion display style: minibuffer or childframe
-;; (setq centaur-frame-maximized-on-startup t)    ; Maximize frame on startup or not: t or nil
-;; (setq centaur-dashboard nil)                   ; Display dashboard at startup or not: t or nil
-;; (setq centaur-lsp 'lsp-mode)                   ; Set LSP client: lsp-mode, eglot or nil
-;; (setq centaur-lsp-format-on-save t)            ; Auto format buffers on save: t or nil
-;; (setq centaur-lsp-format-on-save-ignore-modes '(c-mode c++-mode python-mode markdown-mode)) ; Ignore format on save for some languages
-;; (setq centaur-tree-sitter nil)                 ; Enable tree-sitter or not: t or nil. Only available in 29+.
-;; (setq centaur-chinese-calendar t)              ; Support Chinese calendar or not: t or nil
-;; (setq centaur-player t)                        ; Enable players or not: t or nil
-(setq centaur-prettify-symbols-alist nil)      ; Alist of symbol prettifications. Nil to use font supports ligatures.
+;; (setq my-use-exec-path-from-shell nil)    ; Use `exec-path-from-shell' or not. If using emacs-plus with path ejection, set to nil
+;; (setq my-icon nil)                        ; Display icons or not: t or nil
+;; (setq my-package-archives 'melpa)         ; Package repo: melpa, bfsu, iscas, netease, sjtu, tencent, tuna or ustc
+;; (setq my-theme 'auto)                     ; Color theme: auto, random, system, default, pro, dark, light, warm, cold, day or night
+;; (setq my-completion-style 'minibuffer)    ; Completion display style: minibuffer or childframe
+;; (setq my-frame-maximized-on-startup t)    ; Maximize frame on startup or not: t or nil
+;; (setq my-dashboard nil)                   ; Display dashboard at startup or not: t or nil
+;; (setq my-lsp 'lsp-mode)                   ; Set LSP client: lsp-mode, eglot or nil
+;; (setq my-lsp-format-on-save t)            ; Auto format buffers on save: t or nil
+;; (setq my-lsp-format-on-save-ignore-modes '(c-mode c++-mode python-mode markdown-mode)) ; Ignore format on save for some languages
+;; (setq my-tree-sitter nil)                 ; Enable tree-sitter or not: t or nil. Only available in 29+.
+;; (setq my-chinese-calendar t)              ; Support Chinese calendar or not: t or nil
+;; (setq my-player t)                        ; Enable players or not: t or nil
+(setq my-prettify-symbols-alist nil)      ; Alist of symbol prettifications. Nil to use font supports ligatures.
 
 ;; For Emacs devel
 ;; (setq package-user-dir (locate-user-emacs-file (format "elpa-%s" emacs-major-version)))
@@ -31,7 +31,7 @@
 ;; (setq desktop-base-lock-name (format ".emacs-%s.desktop.lock" emacs-major-version))
 
 ;; Fonts
-(defun centaur-setup-fonts ()
+(defun my-setup-fonts ()
   "Setup fonts."
   (when (display-graphic-p)
     ;; Set default font
@@ -74,9 +74,9 @@
     ;;                   (set-fontset-font t 'han (font-spec :family font))))
     ))
 
-(centaur-setup-fonts)
-(add-hook 'window-setup-hook #'centaur-setup-fonts)
-(add-hook 'server-after-make-frame-hook #'centaur-setup-fonts)
+(my-setup-fonts)
+(add-hook 'window-setup-hook #'my-setup-fonts)
+(add-hook 'server-after-make-frame-hook #'my-setup-fonts)
 
 ;; Mail
 ;; (setq message-send-mail-function 'smtpmail-send-it

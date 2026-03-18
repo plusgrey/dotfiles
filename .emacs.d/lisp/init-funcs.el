@@ -1,9 +1,9 @@
 ;; init-funcs.el --- Define functions.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2018-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -144,7 +144,7 @@ Same as `replace-string' `C-q' `C-m' `RET' `RET'."
   (and (display-graphic-p)
        (featurep 'xwidget-internal)))
 
-(defun centaur-webkit-browse-url (url &optional pop-buffer new-session)
+(defun my-webkit-browse-url (url &optional pop-buffer new-session)
   "Browse URL with xwidget-webkit' and switch or pop to the buffer.
 
 POP-BUFFER specifies whether to pop to the buffer.
@@ -161,15 +161,15 @@ Interactively, URL defaults to the string looking like a url around point."
           (pop-to-buffer buf)
         (switch-to-buffer buf)))))
 
-(defun centaur-browse-url (url)
+(defun my-browse-url (url)
   "Open URL using a configurable method.
 See `browse-url' for more details."
   (interactive)
   (if (xwidget-workable-p)
-      (centaur-webkit-browse-url url t)
+      (my-webkit-browse-url url t)
     (browse-url url)))
 
-(defun centaur-browse-url-of-file (file)
+(defun my-browse-url-of-file (file)
   "Use a web browser to display FILE.
 Display the current buffer's file if FILE is nil or if called
 interactively.  Turn the filename into a URL with function
@@ -177,7 +177,7 @@ interactively.  Turn the filename into a URL with function
 `browse-url' function then run `browse-url-of-file-hook'."
   (interactive)
   (if (xwidget-workable-p)
-      (centaur-webkit-browse-url (browse-url-file-url file) t)
+      (my-webkit-browse-url (browse-url-file-url file) t)
     (browse-url-of-file file)))
 
 ;; Reload configurations
@@ -185,13 +185,13 @@ interactively.  Turn the filename into a URL with function
   "Reload Emacs configurations."
   (interactive)
   (load user-init-file))
-(defalias 'centaur-reload-init-file #'reload-init-file)
+(defalias 'my-reload-init-file #'reload-init-file)
 
 ;; Browse the homepage
 (defun browse-homepage ()
-  "Browse the Github page of Centaur Emacs."
+  "Browse the Github page of My Emacs."
   (interactive)
-  (browse-url centaur-homepage))
+  (browse-url my-homepage))
 
 ;; Open custom file
 (defun find-custom-file ()
@@ -200,13 +200,13 @@ If the custom file doesn't exist, copy the example file to create it.
 Also opens the custom-post file in another window if it exists."
   (interactive)
   (unless (file-exists-p custom-file)
-    (if (file-exists-p centaur-custom-example-file)
-        (copy-file centaur-custom-example-file custom-file)
-      (user-error "The file `%s' doesn't exist" centaur-custom-example-file)))
+    (if (file-exists-p my-custom-example-file)
+        (copy-file my-custom-example-file custom-file)
+      (user-error "The file `%s' doesn't exist" my-custom-example-file)))
   (when (file-exists-p custom-file)
     (find-file custom-file))
-  (when (file-exists-p centaur-custom-post-file)
-    (find-file-other-window centaur-custom-post-file)))
+  (when (file-exists-p my-custom-post-file)
+    (find-file-other-window my-custom-post-file)))
 
 ;; Misc
 (defun byte-compile-elpa ()
@@ -239,19 +239,19 @@ Also opens the custom-post file in another window if it exists."
 
 (defun icons-displayable-p ()
   "Return non-nil if icons are displayable."
-  (and centaur-icon
+  (and my-icon
        (or (featurep 'nerd-icons)
            (require 'nerd-icons nil t))))
 
-(defun centaur-treesit-available-p ()
+(defun my-treesit-available-p ()
   "Check whether tree-sitter is available.
 
 Native tree-sitter is introduced since 29.1."
-  (and centaur-tree-sitter
+  (and my-tree-sitter
        (fboundp 'treesit-available-p)
        (treesit-available-p)))
 
-(defun centaur-set-variable (variable value &optional no-save)
+(defun my-set-variable (variable value &optional no-save)
   "Set the VARIABLE to VALUE, and return VALUE.
 
 If NO-SAVE is non-nil, don't save to the custom file.
@@ -279,11 +279,11 @@ lines."
       (and (fboundp 'buffer-line-statistics)
            (> (car (buffer-line-statistics)) 10000))))
 
-(define-minor-mode centaur-read-mode
+(define-minor-mode my-read-mode
   "Minor Mode for better reading experience."
   :init-value nil
-  :group centaur
-  (if centaur-read-mode
+  :group my
+  (if my-read-mode
       (progn
         (and (fboundp 'olivetti-mode) (olivetti-mode 1))
         (and (fboundp 'mixed-pitch-mode) (mixed-pitch-mode 1))
@@ -304,18 +304,18 @@ Save to option `custom-file' if NO-SAVE is nil."
    (list
     (intern
      (completing-read "Select package archives: "
-                      (mapcar #'car centaur-package-archives-alist)))))
+                      (mapcar #'car my-package-archives-alist)))))
   ;; Set option
-  (centaur-set-variable 'centaur-package-archives archives no-save)
+  (my-set-variable 'my-package-archives archives no-save)
 
   ;; Refresh if need
   (and refresh (package-refresh-contents async))
 
   (message "Set package archives to `%s'" archives))
-(defalias 'centaur-set-package-archives #'set-package-archives)
+(defalias 'my-set-package-archives #'set-package-archives)
 
 ;; Refer to https://emacs-china.org/t/elpa/11192
-(defun centaur-test-package-archives (&optional no-chart)
+(defun my-test-package-archives (&optional no-chart)
   "Test connection speed of all package archives and display on chart.
 
 Not displaying the chart if NO-CHART is non-nil.
@@ -331,9 +331,9 @@ Return the fastest package archive."
                          (ignore-errors
                            (url-copy-file url null-device t))
                          (float-time (time-subtract (current-time) start))))
-                     centaur-package-archives-alist))
+                     my-package-archives-alist))
          (fastest (car (nth (cl-position (apply #'min durations) durations)
-                            centaur-package-archives-alist))))
+                            my-package-archives-alist))))
 
     ;; Display on chart
     (when (and (not no-chart)
@@ -342,7 +342,7 @@ Return the fastest package archive."
       (chart-bar-quickie
        'vertical
        "Speed test for the ELPA mirrors"
-       (mapcar (lambda (p) (symbol-name (car p))) centaur-package-archives-alist)
+       (mapcar (lambda (p) (symbol-name (car p))) my-package-archives-alist)
        "ELPA"
        (mapcar (lambda (d) (* 1e3 d)) durations) "ms"))
 
@@ -377,7 +377,7 @@ Return the fastest package archive."
 
 ;; Update
 (defun update-config ()
-  "Update Centaur Emacs configurations to the latest version."
+  "Update My Emacs configurations to the latest version."
   (interactive)
   (let ((dir (expand-file-name user-emacs-directory)))
     (unless (file-exists-p dir)
@@ -387,7 +387,7 @@ Return the fastest package archive."
     (cd dir)
     (shell-command "git pull")
     (message "Updating configurations...done")))
-(defalias 'centaur-update-config #'update-config)
+(defalias 'my-update-config #'update-config)
 
 (defun update-packages ()
   "Refresh package contents and update all packages."
@@ -395,14 +395,14 @@ Return the fastest package archive."
   (message "Updating packages...")
   (package-upgrade-all)
   (message "Updating packages...done"))
-(defalias 'centaur-update-packages #'update-packages)
+(defalias 'my-update-packages #'update-packages)
 
 (defun update-config-and-packages ()
   "Update configurations and packages."
   (interactive)
   (update-config)
   (update-packages))
-(defalias 'centaur-update #'update-config-and-packages)
+(defalias 'my-update #'update-config-and-packages)
 
 (defun update-dotfiles ()
   "Update the dotfiles to the latest version."
@@ -416,7 +416,7 @@ Return the fastest package archive."
           (shell-command "git pull")
           (message "Updating dotfiles...done"))
       (message "\"%s\" doesn't exist" dir))))
-(defalias 'centaur-update-dotfiles #'update-dotfiles)
+(defalias 'my-update-dotfiles #'update-dotfiles)
 
 (defun update-org ()
   "Update Org files to the latest version."
@@ -429,7 +429,7 @@ Return the fastest package archive."
           (shell-command "git pull")
           (message "Updating org files...done"))
       (message "\"%s\" doesn't exist" dir))))
-(defalias 'centaur-update-org #'update-org)
+(defalias 'my-update-org #'update-org)
 
 (defun update-all ()
   "Update dotfiles, org files, configurations and packages to the latest."
@@ -437,11 +437,11 @@ Return the fastest package archive."
   (update-org)
   (update-dotfiles)
   (update-config-and-packages))
-(defalias 'centaur-update-all #'update-all)
+(defalias 'my-update-all #'update-all)
 
 
 ;; Fonts
-(defun centaur-install-fonts ()
+(defun my-install-fonts ()
   "Install necessary fonts."
   (interactive)
   (nerd-icons-install-fonts))
@@ -470,48 +470,48 @@ Return the fastest package archive."
 
 (defun childframe-completion-workable-p ()
   "Whether childframe completion is workable."
-  (and (eq centaur-completion-style 'childframe)
+  (and (eq my-completion-style 'childframe)
        (childframe-workable-p)))
 
-(defun centaur--theme-name (theme)
+(defun my--theme-name (theme)
   "Return internal THEME name."
-  (or (alist-get theme centaur-theme-alist) theme 'doom-one))
+  (or (alist-get theme my-theme-alist) theme 'doom-one))
 
-(defun centaur-compatible-theme-p (theme)
+(defun my-compatible-theme-p (theme)
   "Check if the THEME is compatible. THEME is a symbol."
   (or (memq theme '(auto random system))
-      (string-prefix-p "doom" (symbol-name (centaur--theme-name theme)))))
+      (string-prefix-p "doom" (symbol-name (my--theme-name theme)))))
 
-(defun centaur-dark-theme-p ()
+(defun my-dark-theme-p ()
   "Check if the current theme is a dark theme."
   (eq (frame-parameter nil 'background-mode) 'dark))
 
-(defun centaur-theme-enable-p (theme)
+(defun my-theme-enable-p (theme)
   "The THEME is enabled or not."
   (and theme
-       (not (memq centaur-theme '(auto random system)))
-       (memq (centaur--theme-name theme) custom-enabled-themes)))
+       (not (memq my-theme '(auto random system)))
+       (memq (my--theme-name theme) custom-enabled-themes)))
 
-(defun centaur--load-theme (theme)
+(defun my--load-theme (theme)
   "Disable others and enable new THEME."
-  (when-let* ((theme (centaur--theme-name theme)))
+  (when-let* ((theme (my--theme-name theme)))
     (mapc #'disable-theme custom-enabled-themes)
     (load-theme theme t)))
 
-(defun centaur--load-system-theme (appearance)
+(defun my--load-system-theme (appearance)
   "Load theme, taking current system APPEARANCE into consideration."
-  (centaur--load-theme (alist-get appearance centaur-system-themes)))
+  (my--load-theme (alist-get appearance my-system-themes)))
 
-(defun centaur-load-random-theme ()
+(defun my-load-random-theme ()
   "Load the random theme."
   (interactive)
-  (let* ((themes (mapcar #'cdr centaur-theme-alist))
+  (let* ((themes (mapcar #'cdr my-theme-alist))
          (theme (nth (random (length themes)) themes)))
-    (if (eq theme centaur-theme)
-        (centaur-load-random-theme)
-      (centaur--load-theme theme))))
+    (if (eq theme my-theme)
+        (my-load-random-theme)
+      (my--load-theme theme))))
 
-(defun centaur-load-theme (theme &optional no-save)
+(defun my-load-theme (theme &optional no-save)
   "Load color THEME. Save to option `custom-file' if NO-SAVE is nil."
   (interactive
    (list
@@ -520,7 +520,7 @@ Return the fastest package archive."
                       `(auto
                         random
                         system
-                        ,@(mapcar #'car centaur-theme-alist))))))
+                        ,@(mapcar #'car my-theme-alist))))))
 
   ;; Disable time-switching themes
   (when (fboundp #'circadian-activate-latest-theme)
@@ -537,7 +537,7 @@ Return the fastest package archive."
      (use-package circadian
        :ensure t
        :commands circadian-setup circadian-activate-latest-theme
-       :custom (circadian-themes centaur-auto-themes)
+       :custom (circadian-themes my-auto-themes)
        :init (circadian-setup)))
     ('system
      ;; System-appearance themes
@@ -546,23 +546,23 @@ Return the fastest package archive."
        :diminish
        :commands auto-dark-mode
        :init
-       (setq auto-dark-themes `((,(alist-get 'dark centaur-system-themes))
-                                (,(alist-get 'light centaur-system-themes))))
+       (setq auto-dark-themes `((,(alist-get 'dark my-system-themes))
+                                (,(alist-get 'light my-system-themes))))
        (when (and sys/macp (not (display-graphic-p)))
          (setq auto-dark-detection-method 'osascript))
        (auto-dark-mode 1)))
     ('random
-     (centaur-load-random-theme))
+     (my-load-random-theme))
     (_
-     (centaur--load-theme theme)))
+     (my--load-theme theme)))
 
   ;; Set option
-  (centaur-set-variable 'centaur-theme theme no-save))
+  (my-set-variable 'my-theme theme no-save))
 
 (advice-add #'consult-theme :after
             (lambda (theme)
               "Save theme."
-              (centaur-set-variable 'centaur-theme theme)))
+              (my-set-variable 'my-theme theme)))
 
 
 
@@ -592,37 +592,37 @@ Return the fastest package archive."
 
 
 ;; Frame
-(defvar centaur-frame--geometry nil)
-(defun centaur-frame--save-geometry ()
+(defvar my-frame--geometry nil)
+(defun my-frame--save-geometry ()
   "Save current frame's geometry."
-  (setq centaur-frame--geometry
+  (setq my-frame--geometry
         `((left   . ,(frame-parameter nil 'left))
           (top    . ,(frame-parameter nil 'top))
           (width  . ,(frame-parameter nil 'width))
           (height . ,(frame-parameter nil 'height))
           (fullscreen))))
 
-(defun centaur-frame--fullscreen-p ()
+(defun my-frame--fullscreen-p ()
   "Return Non-nil if the frame is fullscreen."
   (memq (frame-parameter nil 'fullscreen) '(fullscreen fullboth)))
 
-(defun centaur-frame-maximize ()
+(defun my-frame-maximize ()
   "Maximize the frame."
   (interactive)
-  (centaur-frame--save-geometry)
+  (my-frame--save-geometry)
   (unless (eq (frame-parameter nil 'fullscreen) 'maximized)
     (set-frame-parameter nil 'fullscreen 'maximized)))
 
-(defun centaur-frame-restore ()
+(defun my-frame-restore ()
   "Restore the frame's size and position."
   (interactive)
-  (modify-frame-parameters nil centaur-frame--geometry))
+  (modify-frame-parameters nil my-frame--geometry))
 
-(defun centaur-frame-left-half ()
+(defun my-frame-left-half ()
   "Put the frame to the left-half."
   (interactive)
-  (unless (centaur-frame--fullscreen-p)
-    (centaur-frame--save-geometry)
+  (unless (my-frame--fullscreen-p)
+    (my-frame--save-geometry)
     (let* ((attr (frame-monitor-workarea))
            (width (- (/ (nth 2 attr) 2) 20))
            (height (- (nth 3 attr) 30))
@@ -632,11 +632,11 @@ Return the fastest package archive."
       (set-frame-position nil left top)
       (set-frame-size nil width height t))))
 
-(defun centaur-frame-right-half ()
+(defun my-frame-right-half ()
   "Put the frame to the right-half."
   (interactive)
-  (unless (centaur-frame--fullscreen-p)
-    (centaur-frame--save-geometry)
+  (unless (my-frame--fullscreen-p)
+    (my-frame--save-geometry)
     (let* ((attr (frame-monitor-workarea))
            (width (- (/ (nth 2 attr) 2) 20))
            (height (- (nth 3 attr) 30))
@@ -646,11 +646,11 @@ Return the fastest package archive."
       (set-frame-position nil left top)
       (set-frame-size nil width height t))))
 
-(defun centaur-frame-top-half ()
+(defun my-frame-top-half ()
   "Put the frame to the top-half."
   (interactive)
-  (unless (centaur-frame--fullscreen-p)
-    (centaur-frame--save-geometry)
+  (unless (my-frame--fullscreen-p)
+    (my-frame--save-geometry)
     (let* ((attr (frame-monitor-workarea))
            (width (- (nth 2 attr) 20))
            (height (- (/ (nth 3 attr) 2) 30))
@@ -660,11 +660,11 @@ Return the fastest package archive."
       (set-frame-position nil left top)
       (set-frame-size nil width height t))))
 
-(defun centaur-frame-bottom-half ()
+(defun my-frame-bottom-half ()
   "Put the frame to the bottom-half."
   (interactive)
-  (unless (centaur-frame--fullscreen-p)
-    (centaur-frame--save-geometry)
+  (unless (my-frame--fullscreen-p)
+    (my-frame--save-geometry)
     (let* ((attr (frame-monitor-workarea))
            (width (- (nth 2 attr) 20))
            (height (- (/ (nth 3 attr) 2) 30))
@@ -681,15 +681,15 @@ Return the fastest package archive."
   "Show HTTP/HTTPS proxy."
   (interactive)
   (if url-proxy-services
-      (message "Current HTTP proxy is `%s'" centaur-proxy)
+      (message "Current HTTP proxy is `%s'" my-proxy)
     (message "No HTTP proxy")))
 
 (defun enable-http-proxy ()
   "Enable HTTP/HTTPS proxy."
   (interactive)
   (setq url-proxy-services
-        `(("http" . ,centaur-proxy)
-          ("https" . ,centaur-proxy)
+        `(("http" . ,my-proxy)
+          ("https" . ,my-proxy)
           ("no_proxy" . "^\\(localhost\\|192.168.*\\|10.*\\)")))
   (show-http-proxy))
 
@@ -720,11 +720,11 @@ Return the fastest package archive."
   (require 'socks)
   (setq url-gateway-method 'socks
         socks-noproxy '("localhost"))
-  (let* ((proxy (split-string centaur-socks-proxy ":"))
+  (let* ((proxy (split-string my-socks-proxy ":"))
          (host (car proxy))
          (port (string-to-number (cadr proxy))))
     (setq socks-server `("Default server" ,host ,port 5)))
-  (setenv "all_proxy" (concat "socks5://" centaur-socks-proxy))
+  (setenv "all_proxy" (concat "socks5://" my-socks-proxy))
   (show-socks-proxy))
 
 (defun disable-socks-proxy ()

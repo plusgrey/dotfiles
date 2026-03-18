@@ -1,9 +1,9 @@
 ;; init-rust.el --- Initialize Rust configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2019-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -32,9 +32,9 @@
 
 ;; Rust
 (use-package rust-mode
-  :functions centaur-treesit-available-p
+  :functions my-treesit-available-p
   :init (setq rust-format-on-save t
-              rust-mode-treesitter-derive (centaur-treesit-available-p)))
+              rust-mode-treesitter-derive (my-treesit-available-p)))
 
 (use-package ron-mode
   :mode ("\\.ron" . ron-mode))

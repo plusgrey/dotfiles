@@ -1,9 +1,9 @@
 ;; init-lsp.el --- Initialize LSP configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2018-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -34,7 +34,7 @@
   (require 'init-const)
   (require 'init-custom))
 
-(pcase centaur-lsp
+(pcase my-lsp
   ('eglot
    (use-package eglot
      :hook ((prog-mode . (lambda ()
@@ -72,8 +72,8 @@
                           (lsp-enable-which-key-integration)
 
                           ;; Format and organize imports
-                          (when (and centaur-lsp-format-on-save
-                                     (not (apply #'derived-mode-p centaur-lsp-format-on-save-ignore-modes)))
+                          (when (and my-lsp-format-on-save
+                                     (not (apply #'derived-mode-p my-lsp-format-on-save-ignore-modes)))
                             (add-hook 'before-save-hook #'lsp-format-buffer t t)
                             (add-hook 'before-save-hook #'lsp-organize-imports t t)))))
      :bind (:map lsp-mode-map
@@ -526,7 +526,7 @@
    (use-package lsp-java
      :hook ((java-mode java-ts-mode jdee-mode) . (lambda () (require 'lsp-java))))))
 
-(when centaur-lsp
+(when my-lsp
   ;; Enable LSP in org babel
   ;; https://github.com/emacs-lsp/lsp-mode/issues/377
   (cl-defmacro lsp-org-babel-enable (lang)
@@ -538,7 +538,7 @@
          (defun ,intern-pre (info)
            (setq buffer-file-name (or (->> info caddr (alist-get :file))
                                       "org-src-babel.tmp"))
-           (pcase centaur-lsp
+           (pcase my-lsp
              ('eglot
               (when (fboundp 'eglot-ensure)
                 (eglot-ensure)))
@@ -548,10 +548,10 @@
                 (setq-local lsp-headerline-breadcrumb-enable nil)
                 (lsp-deferred)))
              (_
-              (user-error "LSP:: invalid `centaur-lsp' type"))))
+              (user-error "LSP:: invalid `my-lsp' type"))))
          (put ',intern-pre 'function-documentation
               (format "Enable `%s' in the buffer of org source block (%s)."
-                      centaur-lsp (upcase ,lang)))
+                      my-lsp (upcase ,lang)))
 
          (if (fboundp ',edit-pre)
              (advice-add ',edit-pre :after ',intern-pre)

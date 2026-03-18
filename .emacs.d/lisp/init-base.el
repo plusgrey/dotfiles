@@ -1,9 +1,9 @@
 ;; init-base.el --- Better default configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -38,8 +38,8 @@
 (require 'init-funcs)
 
 ;; Personal information
-(setq user-full-name centaur-full-name
-      user-mail-address centaur-mail-address)
+(setq user-full-name my-full-name
+      user-mail-address my-mail-address)
 
 (with-no-warnings
   ;; Key Modifiers
@@ -108,7 +108,7 @@
   (set-selection-coding-system 'utf-8))
 
 ;; Environment
-(when centaur-use-exec-path-from-shell
+(when my-use-exec-path-from-shell
   (use-package exec-path-from-shell
     :commands exec-path-from-shell-initialize
     :custom (exec-path-from-shell-arguments '("-l"))
@@ -221,8 +221,8 @@
 ;; Frame
 (when (display-graphic-p)
   ;; Frame maximized on startup
-  (when centaur-frame-maximized-on-startup
-    (add-hook 'window-setup-hook #'centaur-frame-maximize))
+  (when my-frame-maximized-on-startup
+    (add-hook 'window-setup-hook #'my-frame-maximize))
 
   ;; Frame fullscreen
   (bind-key "S-s-<return>" #'toggle-frame-fullscreen)
@@ -230,12 +230,12 @@
 
   ;; Resize and re-position frames conveniently
   ;; Same keybindings as Rectangle on macOS
-  (bind-keys ("C-M-<return>"    . centaur-frame-maximize)
-             ("C-M-<backspace>" . centaur-frame-restore)
-             ("C-M-<left>"      . centaur-frame-left-half)
-             ("C-M-<right>"     . centaur-frame-right-half)
-             ("C-M-<up>"        . centaur-frame-top-half)
-             ("C-M-<down>"      . centaur-frame-bottom-half))
+  (bind-keys ("C-M-<return>"    . my-frame-maximize)
+             ("C-M-<backspace>" . my-frame-restore)
+             ("C-M-<left>"      . my-frame-left-half)
+             ("C-M-<right>"     . my-frame-right-half)
+             ("C-M-<up>"        . my-frame-top-half)
+             ("C-M-<down>"      . my-frame-bottom-half))
 
   ;; Frame transparency
   (use-package transwin

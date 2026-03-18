@@ -1,9 +1,9 @@
 ;; init-custom.el --- Define customizations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -33,61 +33,61 @@
 (eval-when-compile
   (require 'package))
 
-(defgroup centaur nil
-  "Centaur Emacs customization."
+(defgroup my nil
+  "My Emacs customization."
   :group 'convenience
-  :link '(url-link :tag "Homepage" "https://github.com/seagle0128/.emacs.d"))
+  :link '(url-link :tag "Homepage" "https://github.com/yourusername/.emacs.d"))
 
-(defcustom centaur-logo (expand-file-name
+(defcustom my-logo (expand-file-name
                          (if (display-graphic-p) "logo.png" "banner.txt")
                          user-emacs-directory)
-  "Set Centaur logo. nil means official logo."
-  :group 'centaur
+  "Set My logo. nil means official logo."
+  :group 'my
   :type 'string)
 
-(defcustom centaur-full-name user-full-name
+(defcustom my-full-name user-full-name
   "Set user full name."
-  :group 'centaur
+  :group 'my
   :type 'string)
 
-(defcustom centaur-mail-address user-mail-address
+(defcustom my-mail-address user-mail-address
   "Set user email address."
-  :group 'centaur
+  :group 'my
   :type 'string)
 
-(defcustom centaur-org-directory (expand-file-name "~/org")
+(defcustom my-org-directory (expand-file-name "~/org")
   "Set org directory."
-  :group 'centaur
+  :group 'my
   :type 'string)
 
-(defcustom centaur-proxy "127.0.0.1:7897"
+(defcustom my-proxy "127.0.0.1:7897"
   "Set HTTP/HTTPS proxy."
-  :group 'centaur
+  :group 'my
   :type 'string)
 
-(defcustom centaur-socks-proxy "127.0.0.1:7897"
+(defcustom my-socks-proxy "127.0.0.1:7897"
   "Set SOCKS proxy."
-  :group 'centaur
+  :group 'my
   :type 'string)
 
 
 
-(defcustom centaur-use-exec-path-from-shell
+(defcustom my-use-exec-path-from-shell
   (and (or (memq window-system '(mac ns x)) (daemonp))
        (not (bound-and-true-p ns-emacs-plus-injected-path)))
   "Use `exec-path-from-shell' or not.
 If using emacs-plus with path ejection, set to nil."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-icon t
+(defcustom my-icon t
   "Display icons or not."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
 ;; Emacs Lisp Package Archive (ELPA)
 ;; @see https://github.com/melpa/melpa and https://elpa.emacs-china.org/.
-(defcustom centaur-package-archives-alist
+(defcustom my-package-archives-alist
   (let ((proto (if (gnutls-available-p) "https" "http")))
     `((melpa    . (("gnu"    . ,(format "%s://elpa.gnu.org/packages/" proto))
                    ("nongnu" . ,(format "%s://elpa.nongnu.org/nongnu/" proto))
@@ -111,18 +111,18 @@ If using emacs-plus with path ejection, set to nil."
                    ("nongnu" . ,(format "%s://mirrors.ustc.edu.cn/elpa/nongnu/" proto))
                    ("melpa"  . ,(format "%s://mirrors.ustc.edu.cn/elpa/melpa/" proto))))))
   "A list of the package archives."
-  :group 'centaur
+  :group 'my
   :type '(alist :key-type (symbol :tag "Archive group name")
                 :value-type (alist :key-type (string :tag "Archive name")
                                    :value-type (string :tag "URL or directory name"))))
 
-(defcustom centaur-package-archives 'melpa
+(defcustom my-package-archives 'melpa
   "Set package archives from which to fetch."
-  :group 'centaur
+  :group 'my
   :set (lambda (symbol value)
          (set symbol value)
          (setq package-archives
-               (or (alist-get value centaur-package-archives-alist)
+               (or (alist-get value my-package-archives-alist)
                    (error "Unknown package archives: `%s'" value))))
   :type `(choice ,@(mapcar
                     (lambda (item)
@@ -130,9 +130,9 @@ If using emacs-plus with path ejection, set to nil."
                         (list 'const
                               :tag (capitalize (symbol-name name))
                               name)))
-                    centaur-package-archives-alist)))
+                    my-package-archives-alist)))
 
-(defcustom centaur-theme-alist
+(defcustom my-theme-alist
   '((default . doom-one)
     (pro     . doom-monokai-pro)
     (dark    . doom-vibrant)
@@ -142,11 +142,11 @@ If using emacs-plus with path ejection, set to nil."
     (day     . doom-tomorrow-day)
     (night   . doom-tomorrow-night))
   "List of themes mapped to internal themes."
-  :group 'centaur
+  :group 'my
   :type '(alist :key-type (symbol :tag "Theme")
                 :value-type (symbol :tag "Internal theme")))
 
-(defcustom centaur-auto-themes '(("8:00"  . doom-one-light)
+(defcustom my-auto-themes '(("8:00"  . doom-one-light)
 				                 ("19:00" . doom-one))
   "List of themes mapped to the time they should be loaded.
 
@@ -155,22 +155,22 @@ if the option `calendar-latitude' and option `calendar-longitude' are set.
 For example:
   \\='((:sunrise . doom-one-light)
     (:sunset  . doom-one))"
-  :group 'centaur
+  :group 'my
   :type '(alist :key-type (string :tag "Time")
                 :value-type (symbol :tag "Theme")))
 
-(defcustom centaur-system-themes '((dark  . doom-one)
+(defcustom my-system-themes '((dark  . doom-one)
                                    (light . doom-one-light))
   "List of themes related the system appearance.
 
 It's only available on macOS currently."
-  :group 'centaur
+  :group 'my
   :type '(alist :key-type (symbol :tag "Appearance")
                 :value-type (symbol :tag "Theme")))
 
-(defcustom centaur-theme 'default
+(defcustom my-theme 'default
   "The color theme."
-  :group 'centaur
+  :group 'my
   :type `(choice (const :tag "Auto" auto)
                  (const :tag "Random" random)
                  (const :tag "System" system)
@@ -180,66 +180,66 @@ It's only available on macOS currently."
                         (list 'const
                               :tag (capitalize (symbol-name name))
                               name)))
-                    centaur-theme-alist)
+                    my-theme-alist)
                  symbol))
 
-(defcustom centaur-completion-style 'childframe
+(defcustom my-completion-style 'childframe
   "Completion display style."
-  :group 'centaur
+  :group 'my
   :type '(choice (const :tag "Minibuffer" minibuffer)
                  (const :tag "Child Frame" childframe)))
 
-(defcustom centaur-frame-maximized-on-startup nil
+(defcustom my-frame-maximized-on-startup nil
   "Maximize frame on startup or not."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-dashboard (not (daemonp))
+(defcustom my-dashboard (not (daemonp))
   "Display dashboard at startup or not.
 If Non-nil, use dashboard, otherwise will restore previous session."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-lsp 'eglot
+(defcustom my-lsp 'eglot
   "Set language server.
 
 `lsp-mode': See https://github.com/emacs-lsp/lsp-mode.
 `eglot': See https://github.com/joaotavora/eglot.
 nil means disabled."
-  :group 'centaur
+  :group 'my
   :type '(choice (const :tag "LSP Mode" lsp-mode)
                  (const :tag "Eglot" eglot)
                  (const :tag "Disable" nil)))
 
-(defcustom centaur-tree-sitter t
+(defcustom my-tree-sitter t
   "Enable tree-sitter or not.
 Native tree-sitter is introduced in 29."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-lsp-format-on-save nil
+(defcustom my-lsp-format-on-save nil
   "Auto format buffers on save."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-lsp-format-on-save-ignore-modes
+(defcustom my-lsp-format-on-save-ignore-modes
   '(c-mode c++-mode python-mode markdown-mode)
   "The modes that don't auto format and organize imports while saving the buffers.
 `prog-mode' means ignoring all derived modes."
-  :group 'centaur
+  :group 'my
   :type '(repeat (symbol :tag "Major-Mode")))
 
-(defcustom centaur-chinese-calendar nil
+(defcustom my-chinese-calendar nil
   "Enable Chinese calendar or not."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-player nil
+(defcustom my-player nil
   "Enable players or not."
-  :group 'centaur
+  :group 'my
   :type 'boolean)
 
-(defcustom centaur-prettify-symbols-alist
+(defcustom my-prettify-symbols-alist
   '(("lambda" . ?λ)
     ("<-"     . ?←)
     ("->"     . ?→)
@@ -260,7 +260,7 @@ Native tree-sitter is introduced in 29."
     ("not"    . ?¬))
   "A list of symbol prettifications.
 Nil to use font supports ligatures."
-  :group 'centaur
+  :group 'my
   :type '(alist :key-type string :value-type (choice character sexp)))
 
 ;; Load `custom-file'

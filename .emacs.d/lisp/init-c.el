@@ -1,9 +1,9 @@
 ;; init-c.el --- Initialize c configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -37,9 +37,9 @@
 (use-package cc-mode
   :init (setq-default c-basic-offset 4))
 
-(when (centaur-treesit-available-p)
+(when (my-treesit-available-p)
   (use-package c-ts-mode
-    :functions centaur-treesit-available-p
+    :functions my-treesit-available-p
     :init
     (setq c-ts-mode-indent-offset 4)
 

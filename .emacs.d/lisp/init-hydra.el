@@ -1,9 +1,9 @@
 ;; init-hydra.el --- Initialize hydra configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2019-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -126,52 +126,52 @@
         ("M" diff-hl-margin-mode "margin gutter *" :toggle t)
         ("D" diff-hl-dired-mode "dired gutter" :toggle t))
        "Theme"
-       (("t a" (centaur-load-theme 'auto) "auto"
-         :toggle (eq centaur-theme 'auto) :exit t)
-        ("t r" (centaur-load-theme 'random) "random"
-         :toggle (eq centaur-theme 'random) :exit t)
-        ("t s" (centaur-load-theme 'system) "system"
-         :toggle (eq centaur-theme 'system) :exit t)
-        ("t d" (centaur-load-theme 'default) "default"
-         :toggle (centaur-theme-enable-p 'default) :exit t)
-        ("t p" (centaur-load-theme 'pro) "pro"
-         :toggle (centaur-theme-enable-p 'pro) :exit t)
-        ("t k" (centaur-load-theme 'dark) "dark"
-         :toggle (centaur-theme-enable-p 'dark) :exit t)
-        ("t l" (centaur-load-theme 'light) "light"
-         :toggle (centaur-theme-enable-p 'light) :exit t)
-        ("t w" (centaur-load-theme 'warm) "warm"
-         :toggle (centaur-theme-enable-p 'warm) :exit t)
-        ("t c" (centaur-load-theme 'cold) "cold"
-         :toggle (centaur-theme-enable-p 'cold) :exit t)
-        ("t y" (centaur-load-theme 'day) "day"
-         :toggle (centaur-theme-enable-p 'day) :exit t)
-        ("t n" (centaur-load-theme 'night) "night"
-         :toggle (centaur-theme-enable-p 'night) :exit t)
-        ("t o" (centaur-load-theme
+       (("t a" (my-load-theme 'auto) "auto"
+         :toggle (eq my-theme 'auto) :exit t)
+        ("t r" (my-load-theme 'random) "random"
+         :toggle (eq my-theme 'random) :exit t)
+        ("t s" (my-load-theme 'system) "system"
+         :toggle (eq my-theme 'system) :exit t)
+        ("t d" (my-load-theme 'default) "default"
+         :toggle (my-theme-enable-p 'default) :exit t)
+        ("t p" (my-load-theme 'pro) "pro"
+         :toggle (my-theme-enable-p 'pro) :exit t)
+        ("t k" (my-load-theme 'dark) "dark"
+         :toggle (my-theme-enable-p 'dark) :exit t)
+        ("t l" (my-load-theme 'light) "light"
+         :toggle (my-theme-enable-p 'light) :exit t)
+        ("t w" (my-load-theme 'warm) "warm"
+         :toggle (my-theme-enable-p 'warm) :exit t)
+        ("t c" (my-load-theme 'cold) "cold"
+         :toggle (my-theme-enable-p 'cold) :exit t)
+        ("t y" (my-load-theme 'day) "day"
+         :toggle (my-theme-enable-p 'day) :exit t)
+        ("t n" (my-load-theme 'night) "night"
+         :toggle (my-theme-enable-p 'night) :exit t)
+        ("t o" (my-load-theme
                 (intern (completing-read "Load custom theme: "
                                          (mapcar #'symbol-name
 				                                 (custom-available-themes)))))
          "others"
-         :toggle (not (or (rassoc (car custom-enabled-themes) centaur-theme-alist)
-                          (rassoc (cadr custom-enabled-themes) centaur-theme-alist)))
+         :toggle (not (or (rassoc (car custom-enabled-themes) my-theme-alist)
+                          (rassoc (cadr custom-enabled-themes) my-theme-alist)))
          :exit t))
        "Package Archive"
-       (("p m" (centaur-set-package-archives 'melpa t)
-         "melpa" :toggle (eq centaur-package-archives 'melpa) :exit t)
-        ("p b" (centaur-set-package-archives 'bfsu t)
-         "bfsu" :toggle (eq centaur-package-archives 'bfsu) :exit t)
-        ("p i" (centaur-set-package-archives 'iscas t)
-         "iscas" :toggle (eq centaur-package-archives 'iscas) :exit t)
-        ("p n" (centaur-set-package-archives 'netease t)
-         "netease" :toggle (eq centaur-package-archives 'netease) :exit t)
-        ("p s" (centaur-set-package-archives 'sjtu t)
-         "sjtu" :toggle (eq centaur-package-archives 'sjtu) :exit t)
-        ("p t" (centaur-set-package-archives 'tuna t)
-         "tuna" :toggle (eq centaur-package-archives 'tuna) :exit t)
-        ("p u" (centaur-set-package-archives 'ustc t)
-         "ustc" :toggle (eq centaur-package-archives 'ustc) :exit t)
-        ("p T" (centaur-test-package-archives) "speed test" :exit t))))))
+       (("p m" (my-set-package-archives 'melpa t)
+         "melpa" :toggle (eq my-package-archives 'melpa) :exit t)
+        ("p b" (my-set-package-archives 'bfsu t)
+         "bfsu" :toggle (eq my-package-archives 'bfsu) :exit t)
+        ("p i" (my-set-package-archives 'iscas t)
+         "iscas" :toggle (eq my-package-archives 'iscas) :exit t)
+        ("p n" (my-set-package-archives 'netease t)
+         "netease" :toggle (eq my-package-archives 'netease) :exit t)
+        ("p s" (my-set-package-archives 'sjtu t)
+         "sjtu" :toggle (eq my-package-archives 'sjtu) :exit t)
+        ("p t" (my-set-package-archives 'tuna t)
+         "tuna" :toggle (eq my-package-archives 'tuna) :exit t)
+        ("p u" (my-set-package-archives 'ustc t)
+         "ustc" :toggle (eq my-package-archives 'ustc) :exit t)
+        ("p T" (my-test-package-archives) "speed test" :exit t))))))
 
 (provide 'init-hydra)
 

@@ -1,9 +1,9 @@
 ;; init-edit.el --- Initialize editing configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -242,10 +242,10 @@
 
 ;; Increase selected region by semantic units
 (use-package expand-region
-  :functions centaur-treesit-available-p treesit-buffer-root-node
+  :functions my-treesit-available-p treesit-buffer-root-node
   :bind ("C-=" . er/expand-region)
   :config
-  (when (centaur-treesit-available-p)
+  (when (my-treesit-available-p)
     (defun treesit-mark-bigger-node ()
       "Use tree-sitter to mark regions."
       (let* ((root (treesit-buffer-root-node))

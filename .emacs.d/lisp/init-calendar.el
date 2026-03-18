@@ -1,9 +1,9 @@
 ;; init-calendar.el --- Initialize calendar configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -35,7 +35,7 @@
 
 ;; Chinese calendar
 ;; `pC' can show lunar details
-(when centaur-chinese-calendar
+(when my-chinese-calendar
   (use-package cal-china-x
     :after calendar
     :autoload cal-china-x-setup

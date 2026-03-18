@@ -1,9 +1,9 @@
 ;; init-dashboard.el --- Initialize dashboard configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2018-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -34,7 +34,7 @@
   (require 'init-custom))
 
 ;; Dashboard
-(when centaur-dashboard
+(when my-dashboard
   (use-package dashboard
     :diminish
     :autoload dashboard-setup-startup-hook
@@ -52,8 +52,8 @@
            ("q" . quit-dashboard))
     :hook (dashboard-mode . (lambda () (setq-local frame-title-format nil)))
     :init
-    (setq dashboard-banner-logo-title "CENTAUR EMACS - Enjoy Programming & Writing"
-          dashboard-startup-banner (or centaur-logo 'official)
+    (setq dashboard-banner-logo-title "MY EMACS - Enjoy Programming & Writing"
+          dashboard-startup-banner (or my-logo 'official)
           dashboard-page-separator "\n\f\n"
           dashboard-projects-backend 'project-el
           dashboard-path-style 'truncate-middle
@@ -77,8 +77,8 @@
                                       dashboard-insert-footer)
 
           dashboard-display-icons-p #'icons-displayable-p
-          dashboard-set-file-icons centaur-icon
-          dashboard-set-heading-icons centaur-icon
+          dashboard-set-file-icons my-icon
+          dashboard-set-heading-icons my-icon
           dashboard-heading-icons '((recents   . "nf-oct-history")
                                     (bookmarks . "nf-oct-bookmark")
                                     (agenda    . "nf-oct-calendar")
@@ -89,7 +89,7 @@
           `(((,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-github" :height 1.4))
               "Homepage" "Browse homepage"
-              (lambda (&rest _) (browse-url centaur-homepage)))
+              (lambda (&rest _) (browse-url my-homepage)))
              (,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-backup_restore" :height 1.5))
               "Restore" "Restore previous session"
@@ -100,8 +100,8 @@
               (lambda (&rest _) (find-file custom-file)))
              (,(when (icons-displayable-p)
                  (nerd-icons-mdicon "nf-md-update" :height 1.3))
-              "Update" "Update Centaur Emacs"
-              (lambda (&rest _) (centaur-update)))
+              "Update" "Update My Emacs"
+              (lambda (&rest _) (my-update)))
              (,(if (icons-displayable-p)
                    (nerd-icons-mdicon "nf-md-help" :height 1.2)
                  "?")
@@ -121,7 +121,7 @@
       (defun my/dashboard-insert-copyright ()
         "Insert copyright in the footer."
         (dashboard-insert-center
-         (propertize (format "\nPowered by Centaur Studio, %s\n" (format-time-string "%Y"))
+         (propertize (format "\nPowered by My Studio, %s\n" (format-time-string "%Y"))
                      'face 'font-lock-comment-face)))
       (advice-add #'dashboard-insert-footer :after #'my/dashboard-insert-copyright)
 

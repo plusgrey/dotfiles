@@ -1,9 +1,9 @@
 ;; init-highlight.el --- Initialize highlighting configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -166,7 +166,7 @@ FACE defaults to inheriting from default and highlight."
   (indent-bars-width-frac 0.1)
   (indent-bars-pad-frac 0.1)
   (indent-bars-color-by-depth nil)
-  (indent-bars-treesit-support (centaur-treesit-available-p))
+  (indent-bars-treesit-support (my-treesit-available-p))
   (indent-bars-no-descend-string t)
   (indent-bars-prefer-character t)
   :hook (prog-mode yaml-mode yaml-ts-mode))

@@ -37,9 +37,9 @@
     :hook ((elixir-mode elixir-ts-mode)
            (alchemist-mode . alchemist-phoenix-mode))))
 
-(if (centaur-treesit-available-p)
+(if (my-treesit-available-p)
     (use-package elixir-ts-mode
-      :functions centaur-treesit-available-p
+      :functions my-treesit-available-p
       :mode (("\\.elixir\\'" . elixir-ts-mode)
              ("\\.ex\\'"     . elixir-ts-mode)
              ("\\.exs\\'"    . elixir-ts-mode)

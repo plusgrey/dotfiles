@@ -1,9 +1,9 @@
 ;; init-player.el --- Initialize player configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -33,7 +33,7 @@
 (eval-when-compile
   (require 'init-custom))
 
-(when centaur-player
+(when my-player
   ;; Music player
   (use-package bongo
     :bind ("C-<f8>" . bongo)

@@ -1,9 +1,9 @@
 ;; init-reader.el --- Initialize readers.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2019-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -68,12 +68,12 @@
 (use-package nov
   :mode ("\\.epub\\'" . nov-mode)
   :hook (nov-mode . my/nov-setup)
-  :bind ("M-<f7>" . centaur-read-mode)
+  :bind ("M-<f7>" . my-read-mode)
   :init
   (defun my/nov-setup ()
     "Setup `nov-mode' for better reading experience."
     (visual-line-mode 1)
-    (centaur-read-mode)
+    (my-read-mode)
     (face-remap-add-relative 'variable-pitch :family "Times New Roman" :height 1.5))
   :config
   (with-no-warnings

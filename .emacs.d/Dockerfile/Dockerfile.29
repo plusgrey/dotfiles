@@ -1,6 +1,6 @@
-# This dockerfile is for Centaur Emacs with 29
+# This dockerfile is for My Emacs with 29
 # VERSION 1.3.0
-# Author: Vincent Zhang <seagle0128@gmail.com>
+# Author: Your Name <your.email@example.com>
 # Command format: Instruction [arguments / command] ..
 
 # Base image to use
@@ -14,10 +14,10 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y software-properties-common git
 
-# Install Centaur Emacs
+# Install My Emacs
 RUN apt-get update
 RUN apt-get install -y emacs29-nox
-RUN git clone --depth 1 https://github.com/seagle0128/.emacs.d.git ~/.emacs.d
+RUN git clone --depth 1 https://github.com/yourusername/.emacs.d.git ~/.emacs.d
 
 ENV TERM xterm-256color
 WORKDIR /root

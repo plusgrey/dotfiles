@@ -1,9 +1,9 @@
 ;; init-org.el --- Initialize Org configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -89,7 +89,7 @@
          (org-indent-mode . (lambda()
                               (diminish 'org-indent-mode)
                               ;; HACK: Prevent text moving around while using brackets
-                              ;; @see https://github.com/seagle0128/.emacs.d/issues/88
+                              ;; @see https://github.com/yourusername/.emacs.d/issues/88
                               (make-variable-buffer-local 'show-paren-mode)
                               (setq show-paren-mode nil))))
   :config
@@ -117,7 +117,7 @@ prepended to the element after the #+HEADER: tag."
 
   ;; To speed up startup, don't put to init section
   (setq org-modules nil                 ; Faster loading
-        org-directory centaur-org-directory
+        org-directory my-org-directory
         org-capture-templates
         `(("i" "Idea" entry (file ,(concat org-directory "/idea.org"))
            "*  %^{Title} %?\n%U\n%a\n")
@@ -142,7 +142,7 @@ prepended to the element after the #+HEADER: tag."
                              (?C . success))
 
         ;; Agenda styling
-        org-agenda-files (list centaur-org-directory)
+        org-agenda-files (list my-org-directory)
         org-agenda-block-separator ?─
         org-agenda-time-grid
         '((daily today require-timed)
@@ -167,7 +167,7 @@ prepended to the element after the #+HEADER: tag."
                '("\\.\\(x?html?\\|pdf\\)\\'"
                  .
                  (lambda (file _link)
-                   (centaur-browse-url-of-file (browse-url-file-url file)))))
+                   (my-browse-url-of-file (browse-url-file-url file)))))
 
   ;; Add md/gfm backends
   (add-to-list 'org-export-backends 'md)
@@ -290,7 +290,7 @@ prepended to the element after the #+HEADER: tag."
 (when (and (fboundp 'sqlite-available-p) (sqlite-available-p))
   (use-package org-roam
     :diminish
-    :functions centaur-browse-url org-roam-db-autosync-mode
+    :functions my-browse-url org-roam-db-autosync-mode
     :defines org-roam-graph-viewer
     :bind (("C-c n l" . org-roam-buffer-toggle)
            ("C-c n f" . org-roam-node-find)
@@ -299,9 +299,9 @@ prepended to the element after the #+HEADER: tag."
            ("C-c n c" . org-roam-capture)
            ("C-c n j" . org-roam-dailies-capture-today))
     :init
-    (setq org-roam-directory centaur-org-directory
+    (setq org-roam-directory my-org-directory
           org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag))
-          org-roam-graph-viewer #'centaur-browse-url)
+          org-roam-graph-viewer #'my-browse-url)
     :config
     (unless (file-exists-p org-roam-directory)
       (make-directory org-roam-directory))
@@ -312,7 +312,7 @@ prepended to the element after the #+HEADER: tag."
 
   (use-package org-roam-ui
     :bind ("C-c n u" . org-roam-ui-mode)
-    :init (setq org-roam-ui-browser-function #'centaur-browse-url)))
+    :init (setq org-roam-ui-browser-function #'my-browse-url)))
 
 (provide 'init-org)
 

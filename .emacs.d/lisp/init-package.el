@@ -1,9 +1,9 @@
 ;;; init-package.el --- Initialize package configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -41,17 +41,17 @@
 (defvar use-package-enable-imenu-support)
 
 (declare-function set-package-archives "init-funcs")
-(declare-function centaur-test-package-archives "init-funcs")
+(declare-function my-test-package-archives "init-funcs")
 
 ;; At first startup
 (when (and (not (file-exists-p custom-file))
-           (file-exists-p centaur-custom-example-file))
+           (file-exists-p my-custom-example-file))
   ;; Copy template
-  (copy-file centaur-custom-example-file custom-file)
+  (copy-file my-custom-example-file custom-file)
 
   ;; Test and select the fastest package archives
   (message "Testing connection... Please wait a moment.")
-  (set-package-archives (centaur-test-package-archives 'nochart)))
+  (set-package-archives (my-test-package-archives 'nochart)))
 
 ;; Load `custom-file'
 (load custom-file 'noerror)
@@ -59,11 +59,11 @@
 ;; Load custom-post file
 (defun load-custom-post-file ()
   "Load custom-post file."
-  (cond ((file-exists-p centaur-custom-post-org-file)
+  (cond ((file-exists-p my-custom-post-org-file)
          (and (fboundp 'org-babel-load-file)
-              (org-babel-load-file centaur-custom-post-org-file)))
-        ((file-exists-p centaur-custom-post-file)
-         (load centaur-custom-post-file))))
+              (org-babel-load-file my-custom-post-org-file)))
+        ((file-exists-p my-custom-post-file)
+         (load my-custom-post-file))))
 (add-hook 'after-init-hook #'load-custom-post-file)
 
 ;; HACK: DO NOT save `package-selected-packages' to `custom-file'
@@ -80,7 +80,7 @@
 (advice-add 'package--save-selected-packages :override #'my/package--save-selected-packages)
 
 ;; Set ELPA packages
-(set-package-archives centaur-package-archives nil nil t)
+(set-package-archives my-package-archives nil nil t)
 
 ;; To speedup the Emacs windows, reducing the count on searching `load-path'
 ;; is significant, there're ways to do that:

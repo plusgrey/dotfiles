@@ -1,9 +1,9 @@
 ;;; init-workspace.el --- Initialize workspace configurations.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2018-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -50,8 +50,8 @@
   (tabspaces-exclude-buffers '("*eat*" "*vterm*" "*shell*" "*eshell*"))
 
   ;; sessions
-  (tabspaces-session (not centaur-dashboard))
-  (tabspaces-session-auto-restore (not centaur-dashboard))
+  (tabspaces-session (not my-dashboard))
+  (tabspaces-session-auto-restore (not my-dashboard))
   (tabspaces-session-file (concat user-emacs-directory "tabspaces/tabsession.el"))
   (tabspaces-session-project-session-store (concat user-emacs-directory "tabspaces/"))
   :config

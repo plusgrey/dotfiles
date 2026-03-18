@@ -1,9 +1,9 @@
 ;; init-ui.el --- Better lookings and appearances.	-*- lexical-binding: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -53,10 +53,10 @@
                             (fullscreen)))
 
 ;; Logo
-(setq fancy-splash-image centaur-logo)
+(setq fancy-splash-image my-logo)
 
 ;; Title
-(setq frame-title-format '("Centaur Emacs - %b")
+(setq frame-title-format '("My Emacs - %b")
       icon-title-format frame-title-format)
 
 (when (or sys/mac-ns-p sys/mac-port-p)
@@ -81,27 +81,27 @@
       (add-hook hook #'refresh-ns-appearance))))
 
 ;; Theme
-(if (centaur-compatible-theme-p centaur-theme)
+(if (my-compatible-theme-p my-theme)
     (progn
       ;; Make certain buffers grossly incandescent
       (use-package solaire-mode
-        :functions (centaur-compatible-theme-p refresh-ns-appearance)
+        :functions (my-compatible-theme-p refresh-ns-appearance)
         :commands solaire-global-mode
         :init (solaire-global-mode 1))
 
       ;; Excellent themes
       (use-package doom-themes
-        :functions centaur-load-theme doom-themes-visual-bell-config
-        :init (centaur-load-theme centaur-theme t)
+        :functions my-load-theme doom-themes-visual-bell-config
+        :init (my-load-theme my-theme t)
         :config (doom-themes-visual-bell-config)))
   (progn
     (warn "The current theme may be incompatible!")
-    (centaur-load-theme centaur-theme t)))
+    (my-load-theme my-theme t)))
 
 ;; Mode-line
 (use-package doom-modeline
   :custom
-  (doom-modeline-icon centaur-icon)
+  (doom-modeline-icon my-icon)
   (doom-modeline-minor-modes t)
   :hook after-init
   :bind (:map doom-modeline-mode-map
@@ -359,7 +359,7 @@
     (setq ns-pop-up-frames nil)))
 
 ;; Ligatures support
-(unless centaur-prettify-symbols-alist
+(unless my-prettify-symbols-alist
   (use-package composite
     :ensure nil
     :init (defvar composition-ligature-table (make-char-table nil))

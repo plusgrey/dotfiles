@@ -1,11 +1,11 @@
 ;;; init.el --- A Fancy and Fast Emacs Configuration.	-*- lexical-binding: t no-byte-compile: t -*-
 
-;; Copyright (C) 2006-2026 Vincent Zhang
+;; Copyright (C) 2026 Your Name
 
-;; Author: Vincent Zhang <seagle0128@gmail.com>
-;; URL: https://github.com/seagle0128/.emacs.d
+;; Author: Your Name <your.email@example.com>
+;; URL: https://github.com/yourusername/.emacs.d
 ;; Version: 8.3.0
-;; Keywords: .emacs.d centaur
+;; Keywords: .emacs.d my
 
 ;;
 ;;                          `..`
@@ -22,7 +22,7 @@
 ;;                .s       `++``o:  ``
 ;;                        `:- `:-
 ;;
-;;   CENTAUR EMACS - Enjoy Programming & Writing
+;;   MY EMACS - Enjoy Programming & Writing
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -44,7 +44,7 @@
 
 ;;; Commentary:
 ;;
-;; Centaur Emacs - A Fancy and Fast Emacs Configuration.
+;; My Emacs - A Fancy and Fast Emacs Configuration.
 ;;
 
 
