@@ -480,17 +480,33 @@ Return the fastest package archive."
 (defun my-compatible-theme-p (theme)
   "Check if the THEME is compatible. THEME is a symbol."
   (or (memq theme '(auto random system))
-      (string-prefix-p "doom" (symbol-name (my--theme-name theme)))))
+      (let ((theme-name (symbol-name (my--theme-name theme))))
+        (or (string-prefix-p "doom" theme-name)
+            (string-prefix-p "vscode" theme-name)))))
 
 (defun my-dark-theme-p ()
   "Check if the current theme is a dark theme."
   (eq (frame-parameter nil 'background-mode) 'dark))
 
+(defun my-toggle-theme ()
+  "Toggle between dark and light themes."
+  (interactive)
+  (let* ((pair my-toggle-theme-pair)
+         (dark-theme (or (car pair) 'default))
+         (light-theme (or (cdr pair) 'light))
+         (next-theme (if (my-dark-theme-p) light-theme dark-theme))
+         (theme-name (alist-get next-theme my-theme-alist next-theme)))
+    (when theme-name
+      (mapc #'disable-theme custom-enabled-themes)
+      (load-theme theme-name t)
+      (setq my-theme next-theme)
+      (message "Loaded theme: %s" next-theme))))
+
 (defun my-theme-enable-p (theme)
-  "The THEME is enabled or not."
+  "Check if THEME is the current enabled theme."
   (and theme
        (not (memq my-theme '(auto random system)))
-       (memq (my--theme-name theme) custom-enabled-themes)))
+       (eq theme my-theme)))
 
 (defun my--load-theme (theme)
   "Disable others and enable new THEME."

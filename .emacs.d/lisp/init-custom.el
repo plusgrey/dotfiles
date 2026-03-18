@@ -133,14 +133,15 @@ If using emacs-plus with path ejection, set to nil."
                     my-package-archives-alist)))
 
 (defcustom my-theme-alist
-  '((default . doom-one)
+  '((default . vscode-dark-plus)
     (pro     . doom-monokai-pro)
     (dark    . doom-vibrant)
     (light   . doom-one-light)
     (warm    . doom-solarized-light)
     (cold    . doom-palenight)
     (day     . doom-tomorrow-day)
-    (night   . doom-tomorrow-night))
+    (night   . doom-tomorrow-night)
+    (vscode  . vscode-dark-plus))
   "List of themes mapped to internal themes."
   :group 'my
   :type '(alist :key-type (symbol :tag "Theme")
@@ -182,6 +183,14 @@ It's only available on macOS currently."
                               name)))
                     my-theme-alist)
                  symbol))
+
+(defcustom my-toggle-theme-pair '(default . light)
+  "Pair of themes to toggle between with `my-toggle-theme'.
+Car is the dark theme, cdr is the light theme.
+Use symbols from `my-theme-alist' (e.g., '(dark . light) or '(vscode . day))."
+  :group 'my
+  :type '(cons (symbol :tag "Dark theme")
+               (symbol :tag "Light theme")))
 
 (defcustom my-completion-style 'childframe
   "Completion display style."

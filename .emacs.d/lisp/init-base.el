@@ -275,7 +275,8 @@
 ;; Global keybindings
 (bind-keys ("s-r"     . revert-buffer-quick)
            ("C-x K"   . delete-this-file)
-           ("C-c C-l" . reload-init-file))
+           ("C-c C-l" . reload-init-file)
+           ("s-`"     . my-toggle-theme))
 
 (provide 'init-base)
 

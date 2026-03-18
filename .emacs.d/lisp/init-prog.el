@@ -48,6 +48,9 @@
 
 ;; Tree-sitter support
 (when (my-treesit-available-p)
+  ;; Set font-lock level: 1=minimal, 2=default, 3=full, 4=max
+  (setq treesit-font-lock-level 4)
+
   ;; Automatic Tree-sitter grammar management
   (use-package treesit-auto
     :functions my-treesit-available-p

@@ -13,7 +13,7 @@
 ;; (setq my-use-exec-path-from-shell nil)    ; Use `exec-path-from-shell' or not. If using emacs-plus with path ejection, set to nil
 ;; (setq my-icon nil)                        ; Display icons or not: t or nil
 (setq my-package-archives 'melpa)         ; Package repo: melpa, bfsu, iscas, netease, sjtu, tencent, tuna or ustc
-(setq my-theme 'light)                     ; Color theme: auto, random, system, default, pro, dark, light, warm, cold, day or night
+(setq my-theme 'default)                  ; Color theme: auto, random, system, default, pro, dark, light, warm, cold, day, night or vscode
 ;; (setq my-completion-style 'minibuffer)    ; Completion display style: minibuffer or childframe
 ;; (setq my-frame-maximized-on-startup t)    ; Maximize frame on startup or not: t or nil
 ;; (setq my-dashboard nil)                   ; Display dashboard at startup or not: t or nil
@@ -114,7 +114,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(custom-safe-themes
+   '("aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" default)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -122,5 +123,24 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Maximize current buffer even from side window (treemacs, vterm, etc.)
+(defun my-maximize-buffer ()
+  "Display current buffer in a normal window and delete others.
+Works even when called from a side window."
+  (interactive)
+  (let ((buf (current-buffer)))
+    ;; Find the first non-side window
+    (catch 'found
+      (dolist (win (window-list))
+        (unless (window-parameter win 'window-side)
+          (select-window win)
+          (switch-to-buffer buf)
+          (throw 'found nil))))
+    ;; Now delete other windows
+    (delete-other-windows)))
+
+;; Bind to C-c 1 (C-x 1 won't work because it's used by side windows)
+(global-set-key (kbd "C-c 1") #'my-maximize-buffer)
 
 ;;; custom.el ends here

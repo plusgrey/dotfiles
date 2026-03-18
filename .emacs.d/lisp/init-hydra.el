@@ -126,7 +126,8 @@
         ("M" diff-hl-margin-mode "margin gutter *" :toggle t)
         ("D" diff-hl-dired-mode "dired gutter" :toggle t))
        "Theme"
-       (("t a" (my-load-theme 'auto) "auto"
+       (("t t" my-toggle-theme "toggle dark/light" :exit t)
+        ("t a" (my-load-theme 'auto) "auto"
          :toggle (eq my-theme 'auto) :exit t)
         ("t r" (my-load-theme 'random) "random"
          :toggle (eq my-theme 'random) :exit t)
@@ -148,6 +149,8 @@
          :toggle (my-theme-enable-p 'day) :exit t)
         ("t n" (my-load-theme 'night) "night"
          :toggle (my-theme-enable-p 'night) :exit t)
+        ("t v" (my-load-theme 'vscode) "vscode"
+         :toggle (my-theme-enable-p 'vscode) :exit t)
         ("t o" (my-load-theme
                 (intern (completing-read "Load custom theme: "
                                          (mapcar #'symbol-name

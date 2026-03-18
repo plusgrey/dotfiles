@@ -81,22 +81,29 @@
       (add-hook hook #'refresh-ns-appearance))))
 
 ;; Theme
-(if (my-compatible-theme-p my-theme)
-    (progn
-      ;; Make certain buffers grossly incandescent
-      (use-package solaire-mode
-        :functions (my-compatible-theme-p refresh-ns-appearance)
-        :commands solaire-global-mode
-        :init (solaire-global-mode 1))
+;; Load VSCode Dark+ theme
+(use-package vscode-dark-plus-theme
+  :ensure t
+  :defer t)
 
-      ;; Excellent themes
-      (use-package doom-themes
-        :functions my-load-theme doom-themes-visual-bell-config
-        :init (my-load-theme my-theme t)
-        :config (doom-themes-visual-bell-config)))
-  (progn
-    (warn "The current theme may be incompatible!")
-    (my-load-theme my-theme t)))
+;; Load Doom themes
+(use-package doom-themes
+  :ensure t
+  :defer t
+  :config (doom-themes-visual-bell-config))
+
+;; Make certain buffers grossly incandescent
+(use-package solaire-mode
+  :functions (my-compatible-theme-p refresh-ns-appearance)
+  :commands solaire-global-mode
+  :hook (after-init . solaire-global-mode))
+
+;; Load initial theme after init
+(add-hook 'after-init-hook
+          (lambda ()
+            (let ((theme (alist-get my-theme my-theme-alist my-theme)))
+              (when theme
+                (load-theme theme t)))))
 
 ;; Mode-line
 (use-package doom-modeline

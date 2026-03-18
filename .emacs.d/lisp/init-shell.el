@@ -108,7 +108,38 @@
   :hook ((eshell-load . eat-eshell-mode)
          (eshell-load . eat-eshell-visual-command-mode)))
 
-(use-package vterm)
+(use-package vterm
+  :config
+  ;; Auto-rename vterm buffers to make them unique
+  (setq vterm-buffer-name-string "vterm %s")
+
+  ;; Function to create new vterm in other window
+  (defun my/vterm-other-window ()
+    "Open a new vterm in another window."
+    (interactive)
+    (let ((vterm-buffer-name (generate-new-buffer-name "vterm"))
+          (vterm-buffer-name-string "vterm"))
+      (vterm-other-window)))
+
+  ;; Override vterm to always create new buffer with prefix C-u
+  (advice-add #'vterm :around
+              (lambda (orig-fun &optional arg)
+                "Create new vterm buffer when called with C-u prefix."
+                (if (equal arg '(4))
+                    (let ((vterm-buffer-name (generate-new-buffer-name "vterm"))
+                          (vterm-buffer-name-string "vterm"))
+                      (funcall orig-fun))
+                  (funcall orig-fun arg))))
+
+  ;; Quick command to create named vterm
+  (defun vterm-new (name)
+    "Create a new vterm buffer with NAME."
+    (interactive "sVterm name (optional): ")
+    (let* ((vterm-buffer-name (if (string-empty-p name)
+                                  (generate-new-buffer-name "vterm")
+                                (format "vterm-%s" name)))
+           (vterm-buffer-name-string vterm-buffer-name))
+      (vterm))))
 
 (with-no-warnings
   ;; Shell Pop: leverage `popper'
@@ -203,7 +234,9 @@
       (shell-pop-window-toggle)))
 
   (bind-keys ([f9]  . shell-pop-window-toggle)
-             ("C-`" . shell-pop-toggle)))
+             ("C-`" . shell-pop-toggle)
+             ("C-c t" . vterm-new)
+             ("C-c T" . my/vterm-other-window)))
 
 (provide 'init-shell)
 
