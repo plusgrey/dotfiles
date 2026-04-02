@@ -13,7 +13,7 @@
 ;; (setq my-use-exec-path-from-shell nil)    ; Use `exec-path-from-shell' or not. If using emacs-plus with path ejection, set to nil
 ;; (setq my-icon nil)                        ; Display icons or not: t or nil
 (setq my-package-archives 'melpa)         ; Package repo: melpa, bfsu, iscas, netease, sjtu, tencent, tuna or ustc
-(setq my-theme 'default)                  ; Color theme: auto, random, system, default, pro, dark, light, warm, cold, day, night or vscode
+(setq my-theme 'vscode)                  ; Color theme: auto, random, system, default, pro, dark, light, warm, cold, day, night or vscode
 ;; (setq my-completion-style 'minibuffer)    ; Completion display style: minibuffer or childframe
 ;; (setq my-frame-maximized-on-startup t)    ; Maximize frame on startup or not: t or nil
 ;; (setq my-dashboard nil)                   ; Display dashboard at startup or not: t or nil
