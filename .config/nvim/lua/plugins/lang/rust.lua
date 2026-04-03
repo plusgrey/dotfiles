@@ -119,7 +119,6 @@ return {
     event = { "BufRead Cargo.toml" },
     opts = {
       completion = {
-        cmp = { enabled = false },
         crates = {
           enabled = true,
         },

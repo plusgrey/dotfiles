@@ -44,9 +44,6 @@ return {
         },
       })
 
-      vim.api.nvim_set_hl(0, "DiffAdd", { link = "LineNr" })
-      vim.api.nvim_set_hl(0, "DiffChange", { link = "LineNr" })
-      vim.api.nvim_set_hl(0, "DiffDelete", { link = "LineNr" })
       -- 加载主题
       vim.cmd.colorscheme("vscode")
     end,
@@ -95,9 +92,6 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.api.nvim_set_hl(0, "DiffAdd", { link = "LineNr" })
-      vim.api.nvim_set_hl(0, "DiffChange", { link = "LineNr" })
-      vim.api.nvim_set_hl(0, "DiffDelete", { link = "LineNr" })
       vim.cmd.colorscheme("catppuccin")
     end,
   },
