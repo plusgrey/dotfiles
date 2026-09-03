@@ -22,7 +22,7 @@ config.font = wezterm.font_with_fallback({
 		weight = "Regular",
 	},
 })
-config.font_size = 12.5
+config.font_size = 12
 config.line_height = 1.0 -- 对应 Kitty 的 110%
 
 ----------------------------------------------------------------
