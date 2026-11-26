@@ -50,7 +50,8 @@ config.color_scheme = "Catppuccin Latte"
 config.window_background_opacity = 1.0
 -- 浅色主题保持不透明，以确保文字对比度清晰
 config.macos_window_background_blur = 0
-config.enable_tab_bar = false
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
 config.window_decorations = "NONE"
 ----------------------------------------------------------------
 -- 4. 滚动与光标 (Scroll & Cursor)
