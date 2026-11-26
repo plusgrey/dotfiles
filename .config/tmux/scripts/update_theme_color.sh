@@ -11,7 +11,7 @@ else
   if [[ "$theme_line" == TMUX_THEME_COLOR=* ]]; then
     theme="${theme_line#TMUX_THEME_COLOR=}"
   else
-    theme="#FFC0CB"
+    theme="#4A90E2"
   fi
 fi
 

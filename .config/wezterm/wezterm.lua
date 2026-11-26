@@ -51,7 +51,7 @@ config.window_background_opacity = 0.85
 -- 注意：MacOS 上需要设置 macos_window_background_blur 来实现模糊效果
 config.macos_window_background_blur = 10
 config.enable_tab_bar = false
-config.window_decorations = None
+config.window_decorations = "NONE"
 ----------------------------------------------------------------
 -- 4. 滚动与光标 (Scroll & Cursor)
 ----------------------------------------------------------------
