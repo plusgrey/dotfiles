@@ -28,14 +28,6 @@ zmodule prompt-pwd
 zmodule duration-info
 # Exposes git repository status information to prompts.
 zmodule git-info
-# Catppuccin Latte prompt colors for light terminal backgrounds.
-typeset -g USER_COLOR='#1e66f5'
-typeset -g HOST_COLOR='#8839ef'
-typeset -g PWD_COLOR='#40a02b'
-typeset -g BRANCH_COLOR='#179299'
-typeset -g UNINDEXED_COLOR='#fe640b'
-typeset -g INDEXED_COLOR='#40a02b'
-typeset -g UNTRACKED_COLOR='#d20f39'
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 zmodule steeef
 

@@ -95,6 +95,16 @@ function y() {
 # ------------------
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Catppuccin Latte prompt colors for light terminal backgrounds.
+typeset -g USER_COLOR='#1e66f5'
+typeset -g HOST_COLOR='#8839ef'
+typeset -g PWD_COLOR='#40a02b'
+typeset -g BRANCH_COLOR='#179299'
+typeset -g UNINDEXED_COLOR='#fe640b'
+typeset -g INDEXED_COLOR='#40a02b'
+typeset -g UNTRACKED_COLOR='#d20f39'
+
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   if (( ${+commands[curl]} )); then
