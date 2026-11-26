@@ -52,7 +52,7 @@ config.window_background_opacity = 1.0
 config.macos_window_background_blur = 0
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
-config.window_decorations = "NONE"
+config.window_decorations = "TITLE|RESIZE"
 ----------------------------------------------------------------
 -- 4. 滚动与光标 (Scroll & Cursor)
 ----------------------------------------------------------------
