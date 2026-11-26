@@ -111,7 +111,7 @@ config.keys = {
 	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
 }
 config.front_end = "OpenGL"
-config.max_fps = 300
+config.max_fps = 120
 config.animation_fps = 60
 config.enable_wayland = true
 return config
