@@ -24,7 +24,7 @@ fi
 segment_bg="#3b4252"
 segment_fg="#eceff4"
 # DateTime colors to mirror left active style
-datetime_bg="${TMUX_THEME_COLOR:-#FFC0CB}"
+datetime_bg="${TMUX_THEME_COLOR:-#4A90E2}"
 datetime_fg="#1d1f21"
 separator=""
 right_cap="█"
