@@ -45,11 +45,11 @@ config.initial_rows = 40
 ----------------------------------------------------------------
 -- 3. 颜色与透明度 (Colors & Opacity)
 ----------------------------------------------------------------
--- WezTerm 内置了 Catppuccin Mocha，不需要手动复制十六进制码
-config.color_scheme = "Catppuccin Latte"
-config.window_background_opacity = 1.0
--- 浅色主题保持不透明，以确保文字对比度清晰
-config.macos_window_background_blur = 0
+-- 中性偏冷的浅色主题，避免 Solarized 的黄色底色
+config.color_scheme = "OneHalfLight"
+config.window_background_opacity = 0.76
+-- 较轻的 macOS 毛玻璃效果，保留背景通透感
+config.macos_window_background_blur = 10
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.window_decorations = "TITLE|RESIZE"
