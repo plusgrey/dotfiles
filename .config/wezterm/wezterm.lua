@@ -45,11 +45,11 @@ config.initial_rows = 40
 ----------------------------------------------------------------
 -- 3. 颜色与透明度 (Colors & Opacity)
 ----------------------------------------------------------------
--- 中性偏冷的浅色主题，避免 Solarized 的黄色底色
-config.color_scheme = "OneHalfLight"
-config.window_background_opacity = 0.76
--- 较轻的 macOS 毛玻璃效果，保留背景通透感
-config.macos_window_background_blur = 10
+-- 偏冷、低饱和的深色主题，适合半透明背景
+config.color_scheme = "Tokyo Night"
+config.window_background_opacity = 0.82
+-- 轻微 macOS 毛玻璃效果
+config.macos_window_background_blur = 5
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.window_decorations = "TITLE|RESIZE"
@@ -76,10 +76,36 @@ config.audible_bell = "Disabled"
 ----------------------------------------------------------------
 -- 6. Tab 栏 (Tab Bar)
 ----------------------------------------------------------------
--- 模拟 Powerline 样式
+-- 使用与 Tokyo Night 匹配的深色 Tab 栏
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
 config.tab_max_width = 32
+config.colors = {
+	tab_bar = {
+		background = "#16161e",
+		active_tab = {
+			bg_color = "#7aa2f7",
+			fg_color = "#16161e",
+			intensity = "Bold",
+		},
+		inactive_tab = {
+			bg_color = "#24283b",
+			fg_color = "#a9b1d6",
+		},
+		inactive_tab_hover = {
+			bg_color = "#414868",
+			fg_color = "#c0caf5",
+		},
+		new_tab = {
+			bg_color = "#16161e",
+			fg_color = "#a9b1d6",
+		},
+		new_tab_hover = {
+			bg_color = "#414868",
+			fg_color = "#c0caf5",
+		},
+	},
+}
 
 ----------------------------------------------------------------
 -- 7. Shell
